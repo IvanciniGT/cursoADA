@@ -3,13 +3,16 @@ M P W=b
 P ZX
 
 RN
+RV NO_FLOATING_POINT
 RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U ejemplo3%b		ejemplo3.adb		aec26954 NE OO SU
+U tipos%b		tipos.adb		e28788d3 NE OO SU
 W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-Z system.exp_int%s	s-expint.adb		s-expint.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
@@ -19,13 +22,12 @@ D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
-D ejemplo3.adb		20210706075811 26dfda0e ejemplo3%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
 D system.ads		20200304083000 4635ec04 system%s
+D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
 D s-exctab.ads		20200304083000 54135002 system.exception_table%s
-D s-expint.ads		20200304083000 192336fc system.exp_int%s
 D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
 D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
 D s-parame.ads		20200304083000 f896c45c system.parameters%s
@@ -37,30 +39,34 @@ D s-stoele.ads		20200304083000 2dc34a04 system.storage_elements%s
 D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
+D tipos.adb		20210706083751 6a9a3b89 tipos%b
 X 1 ada.ads
-16K9*Ada 20e8 8|1r6 2r5
+16K9*Ada 20e8 25|1r6 2r5
 X 6 a-textio.ads
-49K13*Text_IO 471e16 8|1w10 2r9
-263U14*Put_Line 8|59s5 62s5 65s5 69s5 70s5 73s5 76s5 79s5 82s5
-X 8 ejemplo3.adb
-4U11*Ejemplo3 4b11 86l5 86t13
-7i5 Resultado{integer} 58m5 59r28 61m5 62r28 64m5 65r28 68m5 69r28 72m5 73r28
-. 75m5 76r28 78m5 79r28 81m5 82r28
-10V14 Doblar{integer} 10b14 10>22 13l9 13t15 58s18
-10i22 Numero{integer} 12r16
-15V14 Maximo{integer} 15b14 15>22 15>40 24l9 24t15 31s16 31s23 61s18
-15i22 Numero1{integer} 18r20 18r43
-15i40 Numero2{integer} 18r30 18r56
-26V14 Maximo{integer} 26b14 26>22 27>28 28>28 32l9 32t15 64s18
-26i22 Numero1{integer} 31r30
-27i28 Numero2{integer} 31r39
-28i28 Numero3{integer} 31r49
-36V14 IdentificarMaximo{integer} 36b14 36>33 36>54 36=75 48l9 48t26 68s18
-36i33 Numero1{integer} 39r12 41r20 42r15 46r20
-36i54 Numero2{integer} 39r22 42r25 44r20
-36i75 Cual{integer} 40m13 43m13
-50i5 PRIORIDAD{integer} 67m5 68m40 68r40 70r28
-52V14 ElevarA{integer} 52b14 52>23 52>44 55t8 72s18 75s18 78s18 81s18
-52i23 Numero{integer} 54r16
-52i44 Exponente{integer} 54r26 81r26
+49K13*Text_IO 471e16 25|1w10 2r9
+263U14*Put_Line 25|35s5 36s5 39s9
+X 25 tipos.adb
+4U11*Tipos 4b11 42l5 42t10
+16I10 Edad<integer> 19r53 21r16 25r13 36r30
+17F10 EdadDecimal<float>
+19V14 ConvertirAEdad{16I10} 19b14 19>30 22l9 22t23 35s52 36s41
+19i30 meses{integer} 21r21
+24i5 MisMeses{integer} 35r67 36r56
+25i5 MiEdad{16I10} 35r77 36r66
+28E10 MES 28e118 30r27 31r21
+28n18 ENERO{28E10}
+28n25 FEBRERO{28E10}
+28n34 MARZO{28E10}
+28n41 ABRIL{28E10}
+28n48 MAYO{28E10}
+28n54 JUNIO{28E10}
+28n61 JULIO{28E10} 30r37
+28n68 AGOSTO{28E10} 31r28 32r42
+28n76 SEPTIEMBRE{28E10} 30r46
+28n88 OCTUBRE{28E10}
+28n97 NOVIEMBRE{28E10}
+28n108 DICIEMBRE{28E10}
+30E13 MES_VERANO{28E10} 32r28
+31e5 MES_NACIMIENTO{28E10} 38r8
+32e5 MES_DE_MIS_VACACIONES{30E13} 38r25
 

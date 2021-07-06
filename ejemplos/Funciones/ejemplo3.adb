@@ -48,6 +48,11 @@ procedure Ejemplo3 is
     end IdentificarMaximo;
     
     PRIORIDAD: Integer;
+    
+    function ElevarA (Numero: Integer:= 1; Exponente: Integer:= 2) return Integer is
+    begin
+        return Numero ** Exponente;
+    end;
 begin
     
     Resultado := Doblar(4);
@@ -63,5 +68,19 @@ begin
     Resultado := IdentificarMaximo(8,1,PRIORIDAD); --- Devuelva el maximo, pero también qué parametro trae ese maximo (1,2)
     Put_line(Integer'Image(resultado));
     Put_line(Integer'Image(PRIORIDAD));
+
+    Resultado := ElevarA(4,2);
+    Put_line(Integer'Image(resultado));
+
+    Resultado := ElevarA;
+    Put_line(Integer'Image(resultado));
+
+    Resultado := ElevarA(3);
+    Put_line(Integer'Image(resultado));
+
+    Resultado := ElevarA(Exponente => 3);
+    Put_line(Integer'Image(resultado));
+
+
 
 end Ejemplo3;
