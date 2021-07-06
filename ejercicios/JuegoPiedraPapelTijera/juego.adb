@@ -5,11 +5,17 @@ use Ada.Integer_Text_IO;
 procedure Juego is
 
     ------------------------------------------------------------------
+    -- Parametrización del Juego
+    ------------------------------------------------------------------
+    NUMERO_PARTIDAS_GANADAS_PARA_GANAR_JUEGO: constant := 2;
+
+    ------------------------------------------------------------------
     -- Tipos a usar en el programa
     ------------------------------------------------------------------
     type Eleccion is (PIEDRA, PAPEL, TIJERA );
     type Resultado is (USUARIO, ORDENADOR, EMPATE);
     type Reglas is array (Eleccion, Eleccion) of Resultado; -- Tipo de datos donde poder poner reglas de juego
+    type Tablero_Resultados is array (Resultado) of Integer;
     
     ------------------------------------------------------------------
     -- Fucion inicializadora de reglas
@@ -56,7 +62,7 @@ procedure Juego is
     end OBTENER_MANO_ORDENADOR;
      
     ------------------------------------------------------------------
-    -- Función para imprimir el resultado
+    -- Función para imprimir el resultado de una mano
     ------------------------------------------------------------------
     procedure MOSTRAR_RESULTADO (MANO_ORDENADOR: Eleccion;
                                  MANO_JUGADOR: Eleccion; 
@@ -66,22 +72,55 @@ procedure Juego is
     end MOSTRAR_RESULTADO;
     
     ------------------------------------------------------------------
+    -- Función para imprimir el resultado final
+    ------------------------------------------------------------------
+    procedure MOSTRAR_RESULTADO_FINAL (RESULTADOS: Tablero_Resultados ) is
+    begin
+        Put_Line("El ordenador ha ganado:" & RESULTADOS(Ordenador)'Image);
+        Put_Line("Tu has ganado:" & RESULTADOS(Usuario)'Image);
+        
+        if RESULTADOS(Usuario) > RESULTADOS(Ordenador) then
+            Put_Line("Eres un máquina !!!!");
+        else
+            Put_Line("Vaya paquete que estás hecho !!!!");
+        end if;
+    end MOSTRAR_RESULTADO_FINAL;
+
+    ------------------------------------------------------------------
+    -- Función para imprimir el resultado
+    ------------------------------------------------------------------
+    function JUGAR_MANO (REGLAS_DE_MI_JUEGO: Reglas) return Resultado is
+        MANO_JUGADOR: Eleccion;
+        MANO_ORDENADOR: Eleccion;
+        GANADOR: Resultado;
+    begin 
+        MANO_ORDENADOR := OBTENER_MANO_ORDENADOR;
+        MANO_JUGADOR := OBTENER_MANO_JUGADOR;
+        
+        GANADOR := REGLAS_DE_MI_JUEGO (MANO_JUGADOR,MANO_ORDENADOR);
+        
+        MOSTRAR_RESULTADO(MANO_ORDENADOR, MANO_JUGADOR, GANADOR);
+        return  GANADOR;
+    end JUGAR_MANO;
+    
+    ------------------------------------------------------------------
     -- Variables de una mano
     ------------------------------------------------------------------
     REGLAS_DE_MI_JUEGO: Reglas;
-    MANO_JUGADOR: Eleccion;
-    MANO_ORDENADOR: Eleccion;
-    GANADOR: Resultado;
-    
+    GANADOR_DE_LA_MANO_ACTUAL: Resultado;
+    RESULTADOS: Tablero_Resultados:= (0,0,0);
 begin
     
     REGLAS_DE_MI_JUEGO := InicializarReglas;
 
-    MANO_ORDENADOR := OBTENER_MANO_ORDENADOR;
-    MANO_JUGADOR := OBTENER_MANO_JUGADOR;
+    -- Hasta ganar el nñumero de partidas requerido
+    while            RESULTADOS(ORDENADOR) /= NUMERO_PARTIDAS_GANADAS_PARA_GANAR_JUEGO 
+            AND THEN RESULTADOS(USUARIO) /= NUMERO_PARTIDAS_GANADAS_PARA_GANAR_JUEGO loop
+        GANADOR_DE_LA_MANO_ACTUAL := JUGAR_MANO(REGLAS_DE_MI_JUEGO); 
+        -- Incremento la cuenta total para el ganador
+        RESULTADOS(GANADOR_DE_LA_MANO_ACTUAL):=RESULTADOS(GANADOR_DE_LA_MANO_ACTUAL)+1;
+    end loop;
     
-    GANADOR := REGLAS_DE_MI_JUEGO (MANO_JUGADOR,MANO_ORDENADOR);
-    
-    MOSTRAR_RESULTADO(MANO_ORDENADOR, MANO_JUGADOR, GANADOR);
+    MOSTRAR_RESULTADO_FINAL(RESULTADOS);
     
 end Juego;
