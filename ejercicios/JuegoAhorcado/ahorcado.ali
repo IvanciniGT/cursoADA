@@ -1,0 +1,57 @@
+V "GNAT Lib v8"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U ahorcado%b		ahorcado.adb		2ce75bc7 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20200304083000 76789da1 ada%s
+D a-except.ads		20200304083000 291912d5 ada.exceptions%s
+D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
+D a-tags.ads		20200304083000 491b781d ada.tags%s
+D a-textio.ads		20200304083000 881db35a ada.text_io%s
+D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
+D ahorcado.adb		20210706114025 a4fae89d ahorcado%b
+D interfac.ads		20200304083000 5ab55268 interfaces%s
+D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
+D system.ads		20200304083000 4635ec04 system%s
+D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200304083000 54135002 system.exception_table%s
+D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
+D s-parame.ads		20200304083000 f896c45c system.parameters%s
+D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
+D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
+D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
+D s-stalib.ads		20200304083000 09bd3940 system.standard_library%s
+D s-stoele.ads		20200304083000 2dc34a04 system.storage_elements%s
+D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 8|1r6 2r5
+X 6 a-textio.ads
+49K13*Text_IO 471e16 8|1w10 2r9
+263U14*Put_Line 8|46s9 49s9
+X 8 ahorcado.adb
+16U11*Ahorcado 16b11 50l5 50t13
+20V14 PEDIR_PALABRA_AL_AZAR{string} 20b14 23l9 23t30
+28V14 PEDIR_LETRA{string} 28b14 31l9 31t20
+36V14 RESULTADO_DE_LA_RONDA{boolean} 36b14 36>38 36>55 36>70 39l9 39t30
+36a38 PALABRA{string}
+36a55 LETRA{string}
+36a70 LETRAS_USADAS{string}
+44U15 PINTAR_ESTADO_PARTIDA 44b15 44>38 44>58 44>75 44>98 47t8
+44b38 RESULTADO{boolean}
+44a58 PALABRA{string}
+44a75 LETRAS_USADAS{string}
+44i98 NUMERO_FALLOS{integer}
+
