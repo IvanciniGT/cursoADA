@@ -7,12 +7,13 @@ RV NO_IO
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U arrays%b		arrays.adb		70fb33cf NE OO SU
+U arrays%b		arrays.adb		3bc9fcd3 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.img_lli%s	s-imglli.adb		s-imglli.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-except.ads		20200304083000 291912d5 ada.exceptions%s
@@ -21,7 +22,7 @@ D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
-D arrays.adb		20210706084640 f8e68095 arrays%b
+D arrays.adb		20210708102948 b3d44f89 arrays%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
 D system.ads		20200304083000 4635ec04 system%s
@@ -30,6 +31,7 @@ D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
 D s-exctab.ads		20200304083000 54135002 system.exception_table%s
 D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
 D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
+D s-imglli.ads		20200304083000 114f55d1 system.img_lli%s
 D s-parame.ads		20200304083000 f896c45c system.parameters%s
 D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
 D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
@@ -43,10 +45,14 @@ X 1 ada.ads
 16K9*Ada 20e8 8|1r6 2r5
 X 6 a-textio.ads
 49K13*Text_IO 471e16 8|1w10 2r9
-263U14*Put_Line 8|10s5 14s9
+263U14*Put_Line 8|17s5 21s9 29s13 30s13 31s13
 X 8 arrays.adb
-3U11*Arrays 3b11 17l5 17t11
-5A10 MiTipoDeArray(integer)<integer> 7r14
-7a5 miarray{5A10} 9m5 12r16 13m9 13r25 14r49
-12i9 Idx{integer} 13r17 13r33 14r57
+3U11*Arrays 3b11 34l5 34t11
+5A10 MiTipoDeArray(integer)<integer> 13r14
+6A10 MiTipoDeArray2D(integer)<integer><integer> 14r16
+11A10 MiTipoDeArrayVariable(integer)<integer> 27r30
+13a5 miarray{5A10} 16m5 19r16 20m9 20r25 21r49
+14a5 miarray2D{6A10} 24m5
+19i9 Idx{integer} 20r17 20r33 21r57
+27a9 nuevoArray{11A10} 30r23 31r23
 

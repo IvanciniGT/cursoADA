@@ -18,15 +18,20 @@ use Ada.Characters.Handling;
 
 procedure Ahorcado is
     
-    type String_Array is array (1..10) of Unbounded_String;
+    package vector_palabras is new Ada.Containers.Vectors
+        (
+        Index_Type => Natural, -- Incluye el CERO      POSITIVE EMPIEZA EN EL 1
+        Element_Type => String
+        );
+    use vector_palabras;
+
     
     ---------------------------------------------------------------------------
     --  Calcular un fichero de palabras
     ---------------------------------------------------------------------------
     function CARGAR_FICHERO_PALABRAS (NOMBRE_FICHERO: String) return String_Array is
-        Lista_Palabras : String_Array;
+        Lista_Palabras : Vector;
         mi_fichero: File_Type;
-        numero_linea: Integer:=1;
     begin
     
         Open (
@@ -36,8 +41,7 @@ procedure Ahorcado is
                 );
         
         while not End_Of_File(mi_fichero) loop
-            Lista_Palabras(numero_linea) := To_Unbounded_String(Get_Line(mi_fichero));
-            numero_linea:= numero_linea+1;
+            Lista_Palabras.append(Get_Line(mi_fichero));
         end loop;
         
         Close(mi_fichero);
@@ -47,9 +51,10 @@ procedure Ahorcado is
     ---------------------------------------------------------------------------
     --  Calcular una palabra al azar
     ---------------------------------------------------------------------------
-    function PEDIR_PALABRA_AL_AZAR (LISTA_PALABRAS : String_Array) return String is
+    function PEDIR_PALABRA_AL_AZAR (LISTA_PALABRAS : Vector) return String is
     begin
-        return To_String(LISTA_PALABRAS(7));
+        --return To_String(LISTA_PALABRAS(7));
+        return LISTA_PALABRAS(7);
     end PEDIR_PALABRA_AL_AZAR;
     
     ---------------------------------------------------------------------------
@@ -152,7 +157,7 @@ procedure Ahorcado is
     LETRAS_USADAS: Unbounded_String := To_Unbounded_String("");
     ACIERTO: Boolean:=False;
     
-    LISTA_PALABRAS : String_Array;
+    LISTA_PALABRAS : Vector;
 
 begin
     
