@@ -1,0 +1,10 @@
+Manzana
+Pera
+Platano
+Melocoton
+Naranja
+Lima
+Lechuga
+Tomate
+Cebolla
+Sandia

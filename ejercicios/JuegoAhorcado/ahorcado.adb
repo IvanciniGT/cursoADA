@@ -13,6 +13,8 @@ use Ada.Characters.Handling;
 with Ada.Containers;
 with Ada.Containers.Vectors;
 
+with CALCULAR_NUMERO_ALEATORIO;
+
 -- Al arrancar el juego, leer las palabras / frases de un fichero.
 -- En el fichero habrá 10 palabras/frases
 -- Las quiero cargar en un array
@@ -48,13 +50,16 @@ procedure Ahorcado is
         Close(mi_fichero);
         return Lista_Palabras;
     end CARGAR_FICHERO_PALABRAS;    
-    
+
+
     ---------------------------------------------------------------------------
     --  Calcular una palabra al azar
     ---------------------------------------------------------------------------
     function PEDIR_PALABRA_AL_AZAR (LISTA_PALABRAS : Vector) return String is
+        NUMERO_ALEATORIO: Integer;
     begin
-        return To_String(LISTA_PALABRAS(7));
+        NUMERO_ALEATORIO:= CALCULAR_NUMERO_ALEATORIO(LISTA_PALABRAS.FIRST_INDEX,LISTA_PALABRAS.LAST_INDEX);
+        return To_String(LISTA_PALABRAS(NUMERO_ALEATORIO));
     end PEDIR_PALABRA_AL_AZAR;
     
     ---------------------------------------------------------------------------

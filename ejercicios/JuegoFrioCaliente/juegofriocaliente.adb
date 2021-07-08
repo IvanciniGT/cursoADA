@@ -2,15 +2,19 @@ with Ada.Integer_Text_IO;
 use Ada.Integer_Text_IO;
 with Ada.Text_IO;
 use Ada.Text_IO;
+with CALCULAR_NUMERO_ALEATORIO;
+--use CALCULAR_NUMERO_ALEATORIO;
 
 procedure JuegoFrioCaliente is
-    SECRETO: Integer := 17;
+    
+    SECRETO: Integer;
     NUMERO_USUARIO: Integer;
     DISTANCIA_AL_NUMERO: Integer;
     VIDAS: Integer := 3;
     ACERTADO: Boolean := False;
 begin
     -- Mientras le queden vidas
+    SECRETO:= CALCULAR_NUMERO_ALEATORIO(1,20);
     -- while | loop exit
     while VIDAS > 0 AND THEN NOT ACERTADO loop
         -- Pedir un numero al usuario

@@ -1,0 +1,1 @@
+function CALCULAR_NUMERO_ALEATORIO (MINIMO: Integer; MAXIMO: INTEGER) return Integer;

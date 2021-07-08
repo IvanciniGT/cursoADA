@@ -4,35 +4,36 @@ P ZX
 
 RN
 RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U juegofriocaliente%b	juegofriocaliente.adb	dcba2346 NE OO SU
+U fichero%b		fichero.adb		371ce310 NE OO SU
 W ada%s			ada.ads			ada.ali
-W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W calcular_numero_aleatorio%b  calcular_numero_aleatorio.adb  calcular_numero_aleatorio.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-except.ads		20200304083000 291912d5 ada.exceptions%s
-D a-inteio.ads		20200304083000 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
-D a-numeri.ads		20200304083000 bb51c45a ada.numerics%s
-D a-nudira.ads		20200304083000 71e55def ada.numerics.discrete_random%s
 D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
-D a-tiinio.ads		20200304083000 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
-D calcular_numero_aleatorio.adb  20210708121739 8b172db1 calcular_numero_aleatorio%b
+D fichero.adb		20210708093223 bf01504a fichero%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
-D juegofriocaliente.adb	20210708122208 29fb3409 juegofriocaliente%b
 D system.ads		20200304083000 4635ec04 system%s
+D s-conca4.ads		20200304083000 7e642b20 system.concat_4%s
 D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
 D s-exctab.ads		20200304083000 54135002 system.exception_table%s
 D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
+D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
 D s-parame.ads		20200304083000 f896c45c system.parameters%s
-D s-rannum.ads		20200304083000 99ade2f2 system.random_numbers%s
 D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
 D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
 D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
@@ -42,21 +43,21 @@ D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 15|1r6 2r5 3r6 4r5
-X 3 a-inteio.ads
-18K13*Integer_Text_IO[10|46] 15|1w10 2r9
-X 9 a-textio.ads
-49K13*Text_IO 471e16 15|3w10 4r9
-263U14*Put_Line 15|21s9 34s17 36s17 38s17 40s17 48s9 50s9
-X 10 a-tiinio.ads
-56U14*Get 15|22s9[3|18]
-X 12 calcular_numero_aleatorio.adb
-6V10*CALCULAR_NUMERO_ALEATORIO{integer} 15|5w6 17s15
-X 15 juegofriocaliente.adb
-8U11*JuegoFrioCaliente 8b11 53l5 53t22
-10i5 SECRETO{integer} 17m5 24r36
-11i5 NUMERO_USUARIO{integer} 22m13 24r44
-12i5 DISTANCIA_AL_NUMERO{integer} 24m9 27r14
-13i5 VIDAS{integer} 19r11 43m9 43r18
-14b5 ACERTADO{boolean} 19r34 30m17 47r8
+16K9*Ada 20e8 8|1r6 2r5
+X 6 a-textio.ads
+49K13*Text_IO 471e16 8|1w10 2r9
+52P9*File_Type 8|5r17
+53n23*In_File{53E9} 8|10r21
+92U14*Open 8|8s5
+93p7 File{52P9} 8|9r13
+94e7 Mode{53E9} 8|10r13
+95a7 Name{string} 8|11r13
+98U14*Close 8|19s5
+183V13*End_Of_File{boolean} 8|14s15
+253V13*Get_Line{string} 8|15s57
+263U14*Put_Line 8|15s9
+X 8 fichero.adb
+4U11*Fichero 4b11 21l5 21t12
+5p5 mi_fichero{6|52P9} 9m21 9r21 14r27 15r66 19m11 19r11
+6i5 numero_linea{integer} 15r29 16m9 16r24
 
