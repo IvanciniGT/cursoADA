@@ -24,7 +24,7 @@ procedure Ahorcado is
         LETRA: String;
     begin
         Put_Line("Qué letra crees que aparece? ");
-        Get_Line(LETRA);
+        LETRA:=Get_Line();
         return LETRA;
     end PEDIR_LETRA;
     
@@ -38,7 +38,7 @@ procedure Ahorcado is
     begin
         
         -- Si la letra ya ha sido usada
-        if Index ( LETRAS_USADAS, LETRA) = 0
+        if Index ( LETRAS_USADAS, LETRA) = 0 then
             LETRAS_USADAS := LETRAS_USADAS & LETRA;
             if Index ( PALABRA, LETRA) /= 0 then
                 VALIDA := True;
@@ -52,12 +52,12 @@ procedure Ahorcado is
     ---------------------------------------------------------------------------
     --  Enmascarar la palabra y Determinar si ya he acertado la palabra
     ---------------------------------------------------------------------------
-    function ENMASCARAR_PALABRA (PALABRA:String; LETRAS_USADAS: String, PALABRA_DESCUBIERTA: out Boolean) return String is
+    function ENMASCARAR_PALABRA (PALABRA:String; LETRAS_USADAS: String; PALABRA_DESCUBIERTA: out Boolean) return String is
         PALABRA_ENMASCARADA: String := PALABRA; 
     begin
         for INDICE_ACTUAL in 1 .. PALABRA'LENGTH loop
             if Index( LETRAS_USADAS, PALABRA(INDICE_ACTUAL) ) = 0 then
-                PALABRA_ENMASCARADA(INDICE_ACTUAL) = '_';
+                PALABRA_ENMASCARADA(INDICE_ACTUAL) := '_';
             end if;
         end loop;
         PALABRA_DESCUBIERTA := (PALABRA_ENMASCARADA = PALABRA);
@@ -72,6 +72,7 @@ procedure Ahorcado is
                                       PALABRA_ENMASCARADA: String; 
                                       LETRAS_USADAS: String; 
                                       NUMERO_FALLOS: Integer;
+                                      NUMERO_FALLOS_PERMITIDOS: Integer;
                                       PALABRA_DESCUBIERTA: Boolean) is
     begin
 
@@ -90,7 +91,7 @@ procedure Ahorcado is
             end if;
         end if;
         -- Pintar por pantalla el número de fallos
-        Put_Line("Fallos: " & NUMERO_FALLOS'Image $ "/" & NUMERO_FALLOS_PERMITIDOS'Image);
+        Put_Line("Fallos: " & NUMERO_FALLOS'Image & "/" & NUMERO_FALLOS_PERMITIDOS'Image);
 
     end;
     
@@ -111,23 +112,23 @@ begin
     -- JUGAR A ADIVINAR LA PALABRA
     PALABRA_A_DESCUBRIR := PEDIR_PALABRA_AL_AZAR;
     
-    PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA,LETRAS_USADAS, PALABRA_DESCUBIERTA);
-    PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, PALABRA_DESCUBIERTA); 
+    PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
+    PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
 
     -- MIENTRAS ME QUEDEN PARTES DEL CUERPO Y ADEMAS QUE AUN FALTEN LETRAS POR DESCUBRIR
     while NUMERO_FALLOS < NUMERO_FALLOS_PERMITIDOS and then not PALABRA_DESCUBIERTA loop
         -- PEDIR LETRA AL USUARIO
-        LETRA_ACTUAL=PEDIR_LETRA;
+        LETRA_ACTUAL :=PEDIR_LETRA;
         ACIERTO := RESULTADO_DE_LA_RONDA ( PALABRA_A_DESCUBRIR, LETRA_ACTUAL, LETRAS_USADAS);
         
         -- Actualizo el numero de fallos y determino si he ganado
         if ACIERTO then 
-            PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA,LETRAS_USADAS, PALABRA_DESCUBIERTA);
+            PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
         else
-            NUMERO_FALLOS : NUMERO_FALLOS + 1;
-        end if
+            NUMERO_FALLOS := NUMERO_FALLOS + 1;
+        end if;
         
-        PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, PALABRA_DESCUBIERTA); 
+        PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
         
     end loop;
 end AHORCADO;
