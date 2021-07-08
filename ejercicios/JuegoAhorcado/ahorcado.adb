@@ -4,6 +4,9 @@ use Ada.Text_IO;
 with Ada.Strings.Fixed;
 use Ada.Strings.Fixed;
 
+with Ada.Strings.Unbounded;
+use Ada.Strings.Unbounded;
+
 -- PEDIR UNA PALABRA
 
 
@@ -21,10 +24,10 @@ procedure Ahorcado is
     --  Pedir letra al usuairo por pantalla
     ---------------------------------------------------------------------------
     function PEDIR_LETRA return String is
-        LETRA: String;
+        LETRA: String:= " ";
     begin
         Put_Line("Qué letra crees que aparece? ");
-        LETRA:=Get_Line();
+        LETRA:=Get_Line;
         return LETRA;
     end PEDIR_LETRA;
     
@@ -33,7 +36,7 @@ procedure Ahorcado is
     ---------------------------------------------------------------------------
     function RESULTADO_DE_LA_RONDA ( PALABRA: String; 
                                      LETRA: String; 
-                                     LETRAS_USADAS: in out String) return Boolean is
+                                     LETRAS_USADAS: in out Unbounded_String) return Boolean is
         VALIDA: Boolean :=False;
     begin
         
@@ -52,11 +55,11 @@ procedure Ahorcado is
     ---------------------------------------------------------------------------
     --  Enmascarar la palabra y Determinar si ya he acertado la palabra
     ---------------------------------------------------------------------------
-    function ENMASCARAR_PALABRA (PALABRA:String; LETRAS_USADAS: String; PALABRA_DESCUBIERTA: out Boolean) return String is
+    function ENMASCARAR_PALABRA (PALABRA:String; LETRAS_USADAS: Unbounded_String; PALABRA_DESCUBIERTA: out Boolean) return String is
         PALABRA_ENMASCARADA: String := PALABRA; 
     begin
         for INDICE_ACTUAL in 1 .. PALABRA'LENGTH loop
-            if Index( LETRAS_USADAS, PALABRA(INDICE_ACTUAL) ) = 0 then
+            if Index( LETRAS_USADAS, ""&PALABRA(INDICE_ACTUAL) ) = 0 then
                 PALABRA_ENMASCARADA(INDICE_ACTUAL) := '_';
             end if;
         end loop;
@@ -70,7 +73,7 @@ procedure Ahorcado is
     procedure PINTAR_ESTADO_PARTIDA ( RESULTADO: Boolean; 
                                       PALABRA: String; 
                                       PALABRA_ENMASCARADA: String; 
-                                      LETRAS_USADAS: String; 
+                                      LETRAS_USADAS: Unbounded_String; 
                                       NUMERO_FALLOS: Integer;
                                       NUMERO_FALLOS_PERMITIDOS: Integer;
                                       PALABRA_DESCUBIERTA: Boolean) is
@@ -78,7 +81,7 @@ procedure Ahorcado is
 
         -- Poner la palabra enmascarada
         Put_Line("PALABRA A ADIVINAR: " & PALABRA_ENMASCARADA);
-        Put_Line("Letras usadas: " & LETRAS_USADAS);
+        Put_Line("Letras usadas: " & To_String(LETRAS_USADAS));
         -- Decir si en la última hemos acertado o no
         if PALABRA_DESCUBIERTA then 
             Put_Line("GANASTE !");
@@ -101,34 +104,37 @@ procedure Ahorcado is
     NUMERO_FALLOS: Integer := 0 ;
     NUMERO_FALLOS_PERMITIDOS: constant := 6 ;
     
-    PALABRA_A_DESCUBRIR: String;
-    PALABRA_ENMASCARADA: String;
+    --PALABRA_A_DESCUBRIR: String;
+    --PALABRA_ENMASCARADA: String;
+    PALABRA_A_DESCUBRIR: String := PEDIR_PALABRA_AL_AZAR;
     PALABRA_DESCUBIERTA: Boolean;
-    LETRA_ACTUAL: String;
-    LETRAS_USADAS: String := "";
-    ACIERTO: Boolean;
+    LETRA_ACTUAL: String:= " ";
+    LETRAS_USADAS: Unbounded_String := To_Unbounded_String("");
+    ACIERTO: Boolean:=False;
 begin
     
     -- JUGAR A ADIVINAR LA PALABRA
-    PALABRA_A_DESCUBRIR := PEDIR_PALABRA_AL_AZAR;
-    
-    PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
-    PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
-
-    -- MIENTRAS ME QUEDEN PARTES DEL CUERPO Y ADEMAS QUE AUN FALTEN LETRAS POR DESCUBRIR
-    while NUMERO_FALLOS < NUMERO_FALLOS_PERMITIDOS and then not PALABRA_DESCUBIERTA loop
-        -- PEDIR LETRA AL USUARIO
-        LETRA_ACTUAL :=PEDIR_LETRA;
-        ACIERTO := RESULTADO_DE_LA_RONDA ( PALABRA_A_DESCUBRIR, LETRA_ACTUAL, LETRAS_USADAS);
-        
-        -- Actualizo el numero de fallos y determino si he ganado
-        if ACIERTO then 
-            PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
-        else
-            NUMERO_FALLOS := NUMERO_FALLOS + 1;
-        end if;
-        
+    declare
+        PALABRA_A_DESCUBRIR: String := PEDIR_PALABRA_AL_AZAR;
+        PALABRA_ENMASCARADA: String := ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
+    begin
         PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
-        
-    end loop;
+    
+        -- MIENTRAS ME QUEDEN PARTES DEL CUERPO Y ADEMAS QUE AUN FALTEN LETRAS POR DESCUBRIR
+        while NUMERO_FALLOS < NUMERO_FALLOS_PERMITIDOS and then not PALABRA_DESCUBIERTA loop
+            -- PEDIR LETRA AL USUARIO
+            LETRA_ACTUAL :=PEDIR_LETRA;
+            ACIERTO := RESULTADO_DE_LA_RONDA ( PALABRA_A_DESCUBRIR, LETRA_ACTUAL, LETRAS_USADAS);
+            
+            -- Actualizo el numero de fallos y determino si he ganado
+            if ACIERTO then 
+                PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,LETRAS_USADAS, PALABRA_DESCUBIERTA);
+            else
+                NUMERO_FALLOS := NUMERO_FALLOS + 1;
+            end if;
+            
+            PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
+            
+        end loop;
+    end;
 end AHORCADO;
