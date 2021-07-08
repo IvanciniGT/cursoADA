@@ -1,0 +1,147 @@
+V "GNAT Lib v8"
+M P W=b
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV STATIC_DISPATCH_TABLES
+RV SPARK_05
+
+U vectores%b		vectores.adb		4e8d5efa NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.address_image%s  s-addima.adb		s-addima.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20200304083000 76789da1 ada%s
+D a-contai.ads		20200304083000 61e5e089 ada.containers%s
+D a-cgarso.ads		20200304083000 9129bfa8 ada.containers.generic_array_sort%s
+D a-conhel.ads		20200304083000 20298884 ada.containers.helpers%s
+D a-conhel.adb		20200304083000 9cc5095b ada.containers.helpers%b
+D a-convec.ads		20200304083000 7e2b0fdf ada.containers.vectors%s
+D a-convec.adb		20200304083000 1450cb2b ada.containers.vectors%b
+D a-except.ads		20200304083000 291912d5 ada.exceptions%s
+D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
+D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20200304083000 7c7305e9 ada.iterator_interfaces%s
+D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
+D a-tags.ads		20200304083000 491b781d ada.tags%s
+D a-textio.ads		20200304083000 881db35a ada.text_io%s
+D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20200304083000 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20200304083000 5ab55268 interfaces%s
+D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
+D system.ads		20200304083000 4635ec04 system%s
+D s-addima.ads		20200304083000 a1ec9d3a system.address_image%s
+D s-atocou.ads		20200304083000 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20200304083000 b65612c0 system.atomic_counters%b
+D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200304083000 54135002 system.exception_table%s
+D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
+D s-finmas.ads		20200304083000 7811a767 system.finalization_masters%s
+D s-finroo.ads		20200304083000 4ff27390 system.finalization_root%s
+D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
+D s-memory.ads		20200304083000 597d6634 system.memory%s
+D s-parame.ads		20200304083000 f896c45c system.parameters%s
+D s-pooglo.ads		20200304083000 ede33ef8 system.pool_global%s
+D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
+D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
+D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
+D s-stalib.ads		20200304083000 09bd3940 system.standard_library%s
+D s-stalib.adb		20200304083000 f2fe2716 system.standard_library%b
+D s-stoele.ads		20200304083000 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20200304083000 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20200304083000 b16154c2 system.storage_pools%s
+D s-stposu.ads		20200304083000 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20200304083000 aedef97e system.stream_attributes%s
+D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
+D vectores.adb		20210708110519 b8bbe27f vectores%b
+X 1 ada.ads
+16K9*Ada 20e8 46|6r6 6r23 8r6 11r43
+X 2 a-contai.ads
+16K13*Containers 24e19 46|8r10 11r47
+20I9*Count_Type<integer>
+X 6 a-convec.ads
+41I9 Index_Type 46|13r9
+42+9 Element_Type 46|14r9
+46k24*Vectors 518e27 46|8w21 11r58
+51I12 Extended_Index{integer}
+57R9 Vector<9|43R9> 46|18r16[11]
+99V13 Length{2|20I9} 46|28s25[11]
+236U14 Prepend 46|26s15[11]
+245U14 Append 46|20s15[11] 21s15[11] 22s15[11] 23s15[11] 24s15[11] 25s15[11]
+261U14 Delete 46|42s15[11] 43s15[11]
+285V13 First_Index{integer} 46|35s42[11] 45s29[11]
+289V13 First_Element{integer} 46|32s50[11]
+291V13 Last_Index{51I12[46|11]} 46|36s42[11] 45s54[11]
+295V13 Last_Element{integer} 46|33s50[11]
+X 11 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[6|72]>
+X 14 a-textio.ads
+49K13*Text_IO 471e16 46|6w10 6r27
+263U14*Put_Line 46|28s5 29s5 30s5 32s5 33s5 35s5 36s5 39s9 46s9
+X 19 system.ads
+67M9*Address
+X 30 s-memory.ads
+53V13*Alloc{19|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{19|67M9} 105i<c,__gnat_realloc>22
+X 37 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 46 vectores.adb
+10U11*Vectores 10b11 49t4
+11K13 mi_paquete_de_vectores[6|46] 16r9
+18r5 mi_vector{6|57R9[11]} 20m5 20r5 21m5 21r5 22m5 22r5 23m5 23r5 24m5 24r5
+. 25m5 25r5 26m5 26r5 28r15 29r32 30r32 32r40 33r40 35r32 36r32 38r21 42m5
+. 42r5 43m5 43r5 45r19 45r44 46r36
+38i9 elemento{integer} 39r25
+45i9 indice{integer} 46r46
+
