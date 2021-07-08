@@ -10,6 +10,9 @@ use Ada.Strings.Unbounded;
 with Ada.Strings.Maps.Constants;
 use Ada.Strings.Maps.Constants;
 
+with Ada.Characters.Handling;
+use Ada.Characters.Handling;
+
 procedure Textos is
     TEXTO: String := "Hola TEXTOS";     -- En este caso no hay problema
     --TEXTO: String := "ADIOS TEXTOS";    -- En este caso SI hay problema. 
@@ -33,6 +36,13 @@ begin
         Put_Line(" Contiene la palabra 'texto'");
    end if;
 
+   Put_Line(     Translate(TEXTO, Upper_Case_Map)    );
+   Put_Line(     Translate(TEXTO, Lower_Case_Map)    );
+
+   Put_Line(     To_Upper(TEXTO)    );
+   Put_Line(     To_Lower(TEXTO)    );
+
+
     -- TEXTOS BOUNDED
     TEXTO_UNBOUNDED := To_Unbounded_String("Hola textos");
     Put_Line("Texto: " & To_String(TEXTO_UNBOUNDED));
@@ -53,5 +63,6 @@ begin
 
    Put_Line(To_String(     Translate(TEXTO_UNBOUNDED, Upper_Case_Map)    ));
    Put_Line(To_String(     Translate(TEXTO_UNBOUNDED, Lower_Case_Map)    ));
+
 
 end Textos;

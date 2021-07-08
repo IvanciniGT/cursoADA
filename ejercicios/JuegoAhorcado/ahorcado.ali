@@ -4,31 +4,40 @@ P ZX
 
 RN
 RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
 RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_LOCAL_ALLOCATORS
 RV NO_NESTED_FINALIZATION
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
 RV SPARK_05
 
-U ahorcado%b		ahorcado.adb		e3428dcf NE OO SU
+U ahorcado%b		ahorcado.adb		9fe523ac NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system%s		system.ads		system.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.concat_4%s	s-conca4.adb		s-conca4.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
+D a-chahan.ads		20200304083000 1601a50f ada.characters.handling%s
 D a-chlat1.ads		20200304083000 66457d31 ada.characters.latin_1%s
 D a-except.ads		20200304083000 291912d5 ada.exceptions%s
 D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
@@ -41,7 +50,7 @@ D a-strunb.ads		20200304083000 ecdfa332 ada.strings.unbounded%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
-D ahorcado.adb		20210708074906 57fca9c9 ahorcado%b
+D ahorcado.adb		20210708100227 3d5aa2a5 ahorcado%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
 D system.ads		20200304083000 4635ec04 system%s
@@ -69,65 +78,91 @@ D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 15|1r6 2r5 4r6 5r5 7r6 8r5
-X 8 a-string.ads
-16K13*Strings 35e16 15|4r10 5r9 7r10 8r9
-X 9 a-strfix.ads
-18K21*Fixed 251e22 15|4w18 5r17
-36V13*Index{natural} 15|46s16
-X 11 a-strunb.ads
-76K21*Unbounded 490e26 15|7w18 8r17
-79R9*Unbounded_String<5|43R9> 474e14 15|39r60 58r65 76r54 112r20
-94V13*To_Unbounded_String{79R9} 15|112s40
-100V13*To_String{string} 15|84s38
-123V14*"&"{79R9} 15|45s44
-230V13*Index{natural} 15|44s12 62s16
-X 13 a-textio.ads
-49K13*Text_IO 471e16 15|1w10 2r9
-256V13*Get_Line{string} 15|30s16
-263U14*Put_Line 15|29s9 83s9 84s9 87s13 89s13 91s13 93s17 97s9
-X 15 ahorcado.adb
-14U11*Ahorcado 14b11 140l5 140t13
-18V14 PEDIR_PALABRA_AL_AZAR{string} 18b14 21l9 21t30 109s36 118s40
-26V14 PEDIR_LETRA{string} 26b14 32l9 32t20 126s28
-27a9 LETRA{string} 30m9 31r16
-37V14 RESULTADO_DE_LA_RONDA{boolean} 37b14 37>38 38>38 39=38 53l9 53t30 127s24
-37a38 PALABRA{string} 46r24
-38a38 LETRA{string} 44r35 45r46 46r33
-39r38 LETRAS_USADAS{11|79R9} 44r20 45m13 45r30
-40b9 VALIDA{boolean} 47m17 51r16
-58V14 ENMASCARAR_PALABRA{string} 58b14 58>34 58>50 58<83 68l9 68t27 119s40
-. 131s39
-58a34 PALABRA{string} 59r40 61r35 62r41 66r55
-58r50 LETRAS_USADAS{11|79R9} 62r23
-58b83 PALABRA_DESCUBIERTA{boolean} 66m9
-59a9 PALABRA_ENMASCARADA{string} 63m17 66r33 67r16
-61i13 INDICE_ACTUAL{integer} 62r49 63r37
-73U15 PINTAR_ESTADO_PARTIDA 73b15 73>39 74>39 75>39 76>39 77>39 78>39 79>39
-. 99t8 121s9 136s13
-73b39 RESULTADO{boolean} 88r15
-74a39 PALABRA{string}
-75a39 PALABRA_ENMASCARADA{string} 83r43
-76r39 LETRAS_USADAS{11|79R9} 84r48
-77i39 NUMERO_FALLOS{integer} 92r16 97r31
-78i39 NUMERO_FALLOS_PERMITIDOS{integer} 92r32 97r59
-79b39 PALABRA_DESCUBIERTA{boolean} 86r12
-104i5 NUMERO_FALLOS{integer} 121r100 124r15 133m17 133r34 136r104
-105N5 NUMERO_FALLOS_PERMITIDOS 121r115 124r31 136r119
-109a5 PALABRA_A_DESCUBRIR{string}
-110b5 PALABRA_DESCUBIERTA{boolean} 119m94 119r94 121r141 124r69 131m93 131r93
-. 136r145
-111a5 LETRA_ACTUAL{string} 126m13 127r69
-112r5 LETRAS_USADAS{11|79R9} 119r79 121r85 127m83 127r83 131r78 136r89
-113b5 ACIERTO{boolean} 121r33 127m13 130r16 136r37
-118a9 PALABRA_A_DESCUBRIR{string} 119r59 121r43 127r48 131r58 136r47
-119a9 PALABRA_ENMASCARADA{string} 121r64 131r17 136r68
-X 18 system.ads
+16K9*Ada 20e8 16|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5
+X 2 a-charac.ads
+16K13*Characters 18e19 16|10r10 11r9
+X 3 a-chahan.ads
+36K24*Handling 159e28 16|10w21 11r20
+71V13*To_Upper{string} 16|62s16 163s51
+X 9 a-string.ads
+16K13*Strings 35e16 16|4r10 5r9 7r10 8r9
+X 10 a-strfix.ads
+18K21*Fixed 251e22 16|4w18 5r17
+36V13*Index{natural} 16|79s16 99s17
+X 12 a-strunb.ads
+76K21*Unbounded 490e26 16|7w18 8r17
+79R9*Unbounded_String<6|43R9> 474e14 16|21r43 71r60 93r49 114r54 152r20
+84V13*Length{natural} 16|124s12
+94V13*To_Unbounded_String{79R9} 16|39s45 152s40
+100V13*To_String{string} 16|52s16 122s38
+123V14*"&"{79R9} 16|78s44
+230V13*Index{natural} 16|77s12 100s26
+X 14 a-textio.ads
+49K13*Text_IO 471e16 16|1w10 2r9
+52P9*File_Type 16|28r21
+53n23*In_File{53E9} 16|34r25
+92U14*Open 16|32s9
+93p7 File{52P9} 16|33r17
+94e7 Mode{53E9} 16|34r17
+95a7 Name{string} 16|35r17
+98U14*Close 16|43s9
+183V13*End_Of_File{boolean} 16|38s19
+253V13*Get_Line{string} 16|39s65
+256V13*Get_Line{string} 16|62s25
+263U14*Put_Line 16|61s9 121s9 122s9 126s17 128s17 130s17 132s21 137s9
+X 16 ahorcado.adb
+19U11*Ahorcado 19b11 185l5 185t13
+21A10 String_Array(12|79R9)<integer> 26r70 27r26 50r54 155r22
+26V14 CARGAR_FICHERO_PALABRAS{21A10} 26b14 26>39 45l9 45t32 160s22
+26a39 NOMBRE_FICHERO{string} 35r25
+27a9 Lista_Palabras{21A10} 39m13 44r16
+28p9 mi_fichero{14|52P9} 33m25 33r25 38r31 39r74 43m15 43r15
+29i9 numero_linea{integer} 39r28 40m13 40r28
+50V14 PEDIR_PALABRA_AL_AZAR{string} 50b14 50>37 53l9 53t30 162s40
+50a37 LISTA_PALABRAS{21A10} 52r26
+58V14 PEDIR_LETRA{string} 58b14 64l9 64t20 171s28
+59a9 LETRA{string} 62m9 63r16
+69V14 RESULTADO_DE_LA_RONDA{boolean} 69b14 69>38 70>38 71=38 86l9 86t30 172s24
+69a38 PALABRA_EN_MAYUSCULAS{string} 79r24
+70a38 LETRA{string} 77r35 78r46 79r47
+71r38 LETRAS_USADAS{12|79R9} 77r20 78m13 78r30
+73b9 VALIDA{boolean} 80m17 84r16
+91V14 ENMASCARAR_PALABRA{string} 91b14 91>34 92>34 93>34 94>34 95<34 106l9
+. 106t27 164s40 176s39
+91a34 PALABRA{string} 96r40 98r35 104r55
+92a34 PALABRA_EN_MAYUSCULAS{string} 99r50 100r51
+93r34 LETRAS_USADAS{12|79R9} 100r33
+94a34 CARACTERES_ESPECIALES{string} 99r24
+95b34 PALABRA_DESCUBIERTA{boolean} 104m9
+96a9 PALABRA_ENMASCARADA{string} 101m17 104r33 105r16
+98i13 INDICE_ACTUAL{integer} 99r72 100r73 101r37
+111U15 PINTAR_ESTADO_PARTIDA 111b15 111>39 112>39 113>39 114>39 115>39 116>39
+. 117>39 139t8 166s9 181s13
+111b39 RESULTADO{boolean} 127r19
+112a39 PALABRA{string}
+113a39 PALABRA_ENMASCARADA{string} 121r43
+114r39 LETRAS_USADAS{12|79R9} 122r48 124r19
+115i39 NUMERO_FALLOS{integer} 131r20 137r31
+116i39 NUMERO_FALLOS_PERMITIDOS{integer} 131r36 137r59
+117b39 PALABRA_DESCUBIERTA{boolean} 125r16
+144i5 NUMERO_FALLOS{integer} 166r100 169r15 178m17 178r34 181r104
+145N5 NUMERO_FALLOS_PERMITIDOS 166r115 169r31 181r119
+146a5 CARACTERES_ESPECIALES{string} 164r125 176r124
+150b5 PALABRA_DESCUBIERTA{boolean} 164m148 164r148 166r141 169r69 176m147
+. 176r147 181r145
+151a5 LETRA_ACTUAL{string} 171m13 172r80
+152r5 LETRAS_USADAS{12|79R9} 164r110 166r85 172m94 172r94 176r109 181r89
+153b5 ACIERTO{boolean} 166r33 172m13 175r16 181r37
+155a5 LISTA_PALABRAS{21A10} 160m5 162r62
+162a9 PALABRA_A_DESCUBRIR{string} 163r61 164r59 166r43 176r58 181r47
+163a9 PALABRA_A_DESCUBRIR_MAYUSCULAS{string} 164r79 172r48 176r78
+164a9 PALABRA_ENMASCARADA{string} 166r64 176r17 181r68
+X 19 system.ads
 67M9*Address
-X 28 s-memory.ads
-53V13*Alloc{18|67M9} 103i<c,__gnat_malloc>22
+X 29 s-memory.ads
+53V13*Alloc{19|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{18|67M9} 105i<c,__gnat_realloc>22
-X 34 s-stalib.adb
+76V13*Realloc{19|67M9} 105i<c,__gnat_realloc>22
+X 35 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

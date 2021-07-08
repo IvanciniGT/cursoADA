@@ -13,8 +13,10 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U textos%b		textos.adb		7781bd5c NE OO SU
+U textos%b		textos.adb		9bb3a808 NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
@@ -33,6 +35,7 @@ Z system.standard_library%s  s-stalib.adb	s-stalib.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
+D a-chahan.ads		20200304083000 1601a50f ada.characters.handling%s
 D a-chlat1.ads		20200304083000 66457d31 ada.characters.latin_1%s
 D a-except.ads		20200304083000 291912d5 ada.exceptions%s
 D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
@@ -72,48 +75,55 @@ D s-stratt.ads		20200304083000 aedef97e system.stream_attributes%s
 D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
-D textos.adb		20210708083001 df31ca32 textos%b
+D textos.adb		20210708084545 25027a69 textos%b
 X 1 ada.ads
-16K9*Ada 20e8 42|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5
-X 8 a-string.ads
-16K13*Strings 35e16 42|4r10 5r9 7r10 8r9 10r10 11r9
-X 9 a-strfix.ads
-18K21*Fixed 251e22 42|4w18 5r17
-36V13*Index{natural} 42|32s7
-X 10 a-strmap.ads
-38K21*Maps 411e21 42|10r18 11r17
+16K9*Ada 20e8 43|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5 13r6 14r5
+X 2 a-charac.ads
+16K13*Characters 18e19 43|13r10 14r9
+X 3 a-chahan.ads
+36K24*Handling 159e28 43|13w21 14r20
+70V13*To_Lower{string} 43|43s18
+71V13*To_Upper{string} 43|42s18
+X 9 a-string.ads
+16K13*Strings 35e16 43|4r10 5r9 7r10 8r9 10r10 11r9
+X 10 a-strfix.ads
+18K21*Fixed 251e22 43|4w18 5r17
+36V13*Index{natural} 43|35s7
+122V13*Translate{string} 43|39s18 40s18
+X 11 a-strmap.ads
+38K21*Maps 411e21 43|10r18 11r17
 107A9*Character_Mapping(character)
-X 11 a-stmaco.ads
-38K26*Constants 915e31 42|10w23 11r22
-54a4*Lower_Case_Map{10|107A9} 42|55r55
-57a4*Upper_Case_Map{10|107A9} 42|54r55
-X 12 a-strunb.ads
-76K21*Unbounded 490e26 42|7w18 8r17
-79R9*Unbounded_String<5|43R9> 474e14 42|20r23
-84V13*Length{natural} 42|42s30 44s26
-94V13*To_Unbounded_String{79R9} 42|37s24 40s24
-100V13*To_String{string} 42|38s26 41s26 54s13 55s13
-139V13*Element{character} 42|45s34
-230V13*Index{natural} 42|50s7
-316V13*Translate{79R9} 42|54s28 55s28
-X 14 a-textio.ads
-49K13*Text_IO 471e16 42|1w10 2r9
-263U14*Put_Line 42|26s5 27s5 29s9 33s9 38s5 41s5 42s5 45s9 48s5 51s9 54s4
-. 55s4
-X 18 system.ads
+X 12 a-stmaco.ads
+38K26*Constants 915e31 43|10w23 11r22
+54a4*Lower_Case_Map{11|107A9} 43|40r35 65r55
+57a4*Upper_Case_Map{11|107A9} 43|39r35 64r55
+X 13 a-strunb.ads
+76K21*Unbounded 490e26 43|7w18 8r17
+79R9*Unbounded_String<6|43R9> 474e14 43|23r23
+84V13*Length{natural} 43|52s30 54s26
+94V13*To_Unbounded_String{79R9} 43|47s24 50s24
+100V13*To_String{string} 43|48s26 51s26 64s13 65s13
+139V13*Element{character} 43|55s34
+230V13*Index{natural} 43|60s7
+316V13*Translate{79R9} 43|64s28 65s28
+X 15 a-textio.ads
+49K13*Text_IO 471e16 43|1w10 2r9
+263U14*Put_Line 43|29s5 30s5 32s9 36s9 39s4 40s4 42s4 43s4 48s5 51s5 52s5
+. 55s9 58s5 61s9 64s4 65s4
+X 19 system.ads
 67M9*Address
-X 28 s-memory.ads
-53V13*Alloc{18|67M9} 103i<c,__gnat_malloc>22
+X 29 s-memory.ads
+53V13*Alloc{19|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{18|67M9} 105i<c,__gnat_realloc>22
-X 34 s-stalib.adb
+76V13*Realloc{19|67M9} 105i<c,__gnat_realloc>22
+X 35 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
-X 42 textos.adb
-13U11*Textos 13b11 57l5 57t11
-14a5 TEXTO{string} 25m5 26r26 27r30 28r26 29r34 32r13
-20r5 TEXTO_UNBOUNDED{12|79R9} 37m5 38r36 40m5 41r36 42r37 44r33 45r42 50r13
-. 54r38 55r38
-21a5 PALABRA{string} 48r17 50r33
-28i9 Posicion{integer} 29r40
-44i9 Posicion{integer} 45r58
+X 43 textos.adb
+16U11*Textos 16b11 68l5 68t11
+17a5 TEXTO{string} 28m5 29r26 30r30 31r26 32r34 35r13 39r28 40r28 42r27 43r27
+23r5 TEXTO_UNBOUNDED{13|79R9} 47m5 48r36 50m5 51r36 52r37 54r33 55r42 60r13
+. 64r38 65r38
+24a5 PALABRA{string} 58r17 60r33
+31i9 Posicion{integer} 32r40
+54i9 Posicion{integer} 55r58
 
