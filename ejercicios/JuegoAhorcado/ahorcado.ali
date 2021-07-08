@@ -3,45 +3,80 @@ M P W=b
 P ZX
 
 RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
 RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTION_PROPAGATION
 RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_NESTED_FINALIZATION
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
 RV NO_IMPLICIT_LOOPS
+RV STATIC_DISPATCH_TABLES
 RV SPARK_05
 
-U ahorcado%b		ahorcado.adb		9fe523ac NE OO SU
+U ahorcado%b		ahorcado.adb		4ff180b9 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.characters%s	a-charac.ads		a-charac.ali
 W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
 Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
 Z system%s		system.ads		system.ali
+Z system.address_image%s  s-addima.adb		s-addima.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
 D a-chahan.ads		20200304083000 1601a50f ada.characters.handling%s
 D a-chlat1.ads		20200304083000 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20200304083000 61e5e089 ada.containers%s
+D a-cgarso.ads		20200304083000 9129bfa8 ada.containers.generic_array_sort%s
+D a-conhel.ads		20200304083000 20298884 ada.containers.helpers%s
+D a-conhel.adb		20200304083000 9cc5095b ada.containers.helpers%b
+D a-convec.ads		20200304083000 7e2b0fdf ada.containers.vectors%s
+D a-convec.adb		20200304083000 1450cb2b ada.containers.vectors%b
 D a-except.ads		20200304083000 291912d5 ada.exceptions%s
 D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
 D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20200304083000 7c7305e9 ada.iterator_interfaces%s
 D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
 D a-string.ads		20200304083000 90ac6797 ada.strings%s
 D a-strfix.ads		20200304083000 d07c346e ada.strings.fixed%s
@@ -50,11 +85,14 @@ D a-strunb.ads		20200304083000 ecdfa332 ada.strings.unbounded%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
-D ahorcado.adb		20210708100227 3d5aa2a5 ahorcado%b
+D a-uncdea.ads		20200304083000 eff36322 ada.unchecked_deallocation%s
+D ahorcado.adb		20210708112036 f280eee6 ahorcado%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
 D system.ads		20200304083000 4635ec04 system%s
+D s-addima.ads		20200304083000 a1ec9d3a system.address_image%s
 D s-atocou.ads		20200304083000 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20200304083000 b65612c0 system.atomic_counters%b
 D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
 D s-conca4.ads		20200304083000 7e642b20 system.concat_4%s
 D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
@@ -65,104 +103,119 @@ D s-finroo.ads		20200304083000 4ff27390 system.finalization_root%s
 D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
 D s-memory.ads		20200304083000 597d6634 system.memory%s
 D s-parame.ads		20200304083000 f896c45c system.parameters%s
+D s-pooglo.ads		20200304083000 ede33ef8 system.pool_global%s
 D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
 D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
 D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
 D s-stalib.ads		20200304083000 09bd3940 system.standard_library%s
 D s-stalib.adb		20200304083000 f2fe2716 system.standard_library%b
 D s-stoele.ads		20200304083000 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20200304083000 ed88f8fb system.storage_elements%b
 D s-stopoo.ads		20200304083000 b16154c2 system.storage_pools%s
 D s-stposu.ads		20200304083000 97a6219c system.storage_pools.subpools%s
 D s-stratt.ads		20200304083000 aedef97e system.stream_attributes%s
+D s-string.ads		20200304083000 8fe54fb7 system.strings%s
+D s-ststop.ads		20200304083000 5fbf1b38 system.strings.stream_ops%s
 D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 16|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5
+16K9*Ada 20e8 24|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5 13r6 14r6 23r36
 X 2 a-charac.ads
-16K13*Characters 18e19 16|10r10 11r9
+16K13*Characters 18e19 24|10r10 11r9
 X 3 a-chahan.ads
-36K24*Handling 159e28 16|10w21 11r20
-71V13*To_Upper{string} 16|62s16 163s51
-X 9 a-string.ads
-16K13*Strings 35e16 16|4r10 5r9 7r10 8r9
-X 10 a-strfix.ads
-18K21*Fixed 251e22 16|4w18 5r17
-36V13*Index{natural} 16|79s16 99s17
-X 12 a-strunb.ads
-76K21*Unbounded 490e26 16|7w18 8r17
-79R9*Unbounded_String<6|43R9> 474e14 16|21r43 71r60 93r49 114r54 152r20
-84V13*Length{natural} 16|124s12
-94V13*To_Unbounded_String{79R9} 16|39s45 152s40
-100V13*To_String{string} 16|52s16 122s38
-123V14*"&"{79R9} 16|78s44
-230V13*Index{natural} 16|77s12 100s26
-X 14 a-textio.ads
-49K13*Text_IO 471e16 16|1w10 2r9
-52P9*File_Type 16|28r21
-53n23*In_File{53E9} 16|34r25
-92U14*Open 16|32s9
-93p7 File{52P9} 16|33r17
-94e7 Mode{53E9} 16|34r17
-95a7 Name{string} 16|35r17
-98U14*Close 16|43s9
-183V13*End_Of_File{boolean} 16|38s19
-253V13*Get_Line{string} 16|39s65
-256V13*Get_Line{string} 16|62s25
-263U14*Put_Line 16|61s9 121s9 122s9 126s17 128s17 130s17 132s21 137s9
-X 16 ahorcado.adb
-19U11*Ahorcado 19b11 185l5 185t13
-21A10 String_Array(12|79R9)<integer> 26r70 27r26 50r54 155r22
-26V14 CARGAR_FICHERO_PALABRAS{21A10} 26b14 26>39 45l9 45t32 160s22
-26a39 NOMBRE_FICHERO{string} 35r25
-27a9 Lista_Palabras{21A10} 39m13 44r16
-28p9 mi_fichero{14|52P9} 33m25 33r25 38r31 39r74 43m15 43r15
-29i9 numero_linea{integer} 39r28 40m13 40r28
-50V14 PEDIR_PALABRA_AL_AZAR{string} 50b14 50>37 53l9 53t30 162s40
-50a37 LISTA_PALABRAS{21A10} 52r26
-58V14 PEDIR_LETRA{string} 58b14 64l9 64t20 171s28
-59a9 LETRA{string} 62m9 63r16
-69V14 RESULTADO_DE_LA_RONDA{boolean} 69b14 69>38 70>38 71=38 86l9 86t30 172s24
-69a38 PALABRA_EN_MAYUSCULAS{string} 79r24
-70a38 LETRA{string} 77r35 78r46 79r47
-71r38 LETRAS_USADAS{12|79R9} 77r20 78m13 78r30
-73b9 VALIDA{boolean} 80m17 84r16
-91V14 ENMASCARAR_PALABRA{string} 91b14 91>34 92>34 93>34 94>34 95<34 106l9
-. 106t27 164s40 176s39
-91a34 PALABRA{string} 96r40 98r35 104r55
-92a34 PALABRA_EN_MAYUSCULAS{string} 99r50 100r51
-93r34 LETRAS_USADAS{12|79R9} 100r33
-94a34 CARACTERES_ESPECIALES{string} 99r24
-95b34 PALABRA_DESCUBIERTA{boolean} 104m9
-96a9 PALABRA_ENMASCARADA{string} 101m17 104r33 105r16
-98i13 INDICE_ACTUAL{integer} 99r72 100r73 101r37
-111U15 PINTAR_ESTADO_PARTIDA 111b15 111>39 112>39 113>39 114>39 115>39 116>39
-. 117>39 139t8 166s9 181s13
-111b39 RESULTADO{boolean} 127r19
-112a39 PALABRA{string}
-113a39 PALABRA_ENMASCARADA{string} 121r43
-114r39 LETRAS_USADAS{12|79R9} 122r48 124r19
-115i39 NUMERO_FALLOS{integer} 131r20 137r31
-116i39 NUMERO_FALLOS_PERMITIDOS{integer} 131r36 137r59
-117b39 PALABRA_DESCUBIERTA{boolean} 125r16
-144i5 NUMERO_FALLOS{integer} 166r100 169r15 178m17 178r34 181r104
-145N5 NUMERO_FALLOS_PERMITIDOS 166r115 169r31 181r119
-146a5 CARACTERES_ESPECIALES{string} 164r125 176r124
-150b5 PALABRA_DESCUBIERTA{boolean} 164m148 164r148 166r141 169r69 176m147
-. 176r147 181r145
-151a5 LETRA_ACTUAL{string} 171m13 172r80
-152r5 LETRAS_USADAS{12|79R9} 164r110 166r85 172m94 172r94 176r109 181r89
-153b5 ACIERTO{boolean} 166r33 172m13 175r16 181r37
-155a5 LISTA_PALABRAS{21A10} 160m5 162r62
-162a9 PALABRA_A_DESCUBRIR{string} 163r61 164r59 166r43 176r58 181r47
-163a9 PALABRA_A_DESCUBRIR_MAYUSCULAS{string} 164r79 172r48 176r78
-164a9 PALABRA_ENMASCARADA{string} 166r64 176r17 181r68
-X 19 system.ads
+36K24*Handling 159e28 24|10w21 11r20
+71V13*To_Upper{string} 24|68s16 169s51
+X 5 a-contai.ads
+16K13*Containers 24e19 24|13w10 14r10 23r40
+X 9 a-convec.ads
+41I9 Index_Type 24|25r9
+42+9 Element_Type 24|26r9
+46k24*Vectors 518e27 24|14w21 23r51
+57R9 Vector<12|43R9> 24|34r70[23] 35r26[23] 56r54[23] 161r22[23]
+245U14 Append 24|46s28[23]
+X 14 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[9|72]>
+X 16 a-string.ads
+16K13*Strings 35e16 24|4r10 5r9 7r10 8r9
+X 17 a-strfix.ads
+18K21*Fixed 251e22 24|4w18 5r17
+36V13*Index{natural} 24|85s16 105s17
+X 19 a-strunb.ads
+76K21*Unbounded 490e26 24|7w18 8r17
+79R9*Unbounded_String<12|43R9> 474e14 24|26r25 77r60 99r49 120r54 158r20
+84V13*Length{natural} 24|130s12
+94V13*To_Unbounded_String{79R9} 24|46s35 158s40
+100V13*To_String{string} 24|58s16 128s38
+123V14*"&"{79R9} 24|84s44
+166V14*"="{boolean} 9|44i19
+230V13*Index{natural} 24|83s12 106s26
+X 21 a-textio.ads
+49K13*Text_IO 471e16 24|1w10 2r9
+52P9*File_Type 24|36r21
+53n23*In_File{53E9} 24|41r25
+92U14*Open 24|39s9
+93p7 File{52P9} 24|40r17
+94e7 Mode{53E9} 24|41r17
+95a7 Name{string} 24|42r17
+98U14*Close 24|49s9
+183V13*End_Of_File{boolean} 24|45s19
+253V13*Get_Line{string} 24|46s55
+256V13*Get_Line{string} 24|68s25
+263U14*Put_Line 24|67s9 127s9 128s9 132s17 134s17 136s17 138s21 143s9
+X 24 ahorcado.adb
+21U11*Ahorcado 21b11 191l5 191t13
+23K13 vector_palabras[9|46] 28r9
+34V14 CARGAR_FICHERO_PALABRAS{9|57R9[23]} 34b14 34>39 51l9 51t32 166s22
+34a39 NOMBRE_FICHERO{string} 42r25
+35r9 Lista_Palabras{9|57R9[23]} 46m13 46r13 50r16
+36p9 mi_fichero{21|52P9} 40m25 40r25 45r31 46r64 49m15 49r15
+56V14 PEDIR_PALABRA_AL_AZAR{string} 56b14 56>37 59l9 59t30 168s40
+56r37 LISTA_PALABRAS{9|57R9[23]} 58r26
+64V14 PEDIR_LETRA{string} 64b14 70l9 70t20 177s28
+65a9 LETRA{string} 68m9 69r16
+75V14 RESULTADO_DE_LA_RONDA{boolean} 75b14 75>38 76>38 77=38 92l9 92t30 178s24
+75a38 PALABRA_EN_MAYUSCULAS{string} 85r24
+76a38 LETRA{string} 83r35 84r46 85r47
+77r38 LETRAS_USADAS{19|79R9} 83r20 84m13 84r30
+79b9 VALIDA{boolean} 86m17 90r16
+97V14 ENMASCARAR_PALABRA{string} 97b14 97>34 98>34 99>34 100>34 101<34 112l9
+. 112t27 170s40 182s39
+97a34 PALABRA{string} 102r40 104r35 110r55
+98a34 PALABRA_EN_MAYUSCULAS{string} 105r50 106r51
+99r34 LETRAS_USADAS{19|79R9} 106r33
+100a34 CARACTERES_ESPECIALES{string} 105r24
+101b34 PALABRA_DESCUBIERTA{boolean} 110m9
+102a9 PALABRA_ENMASCARADA{string} 107m17 110r33 111r16
+104i13 INDICE_ACTUAL{integer} 105r72 106r73 107r37
+117U15 PINTAR_ESTADO_PARTIDA 117b15 117>39 118>39 119>39 120>39 121>39 122>39
+. 123>39 145t8 172s9 187s13
+117b39 RESULTADO{boolean} 133r19
+118a39 PALABRA{string}
+119a39 PALABRA_ENMASCARADA{string} 127r43
+120r39 LETRAS_USADAS{19|79R9} 128r48 130r19
+121i39 NUMERO_FALLOS{integer} 137r20 143r31
+122i39 NUMERO_FALLOS_PERMITIDOS{integer} 137r36 143r59
+123b39 PALABRA_DESCUBIERTA{boolean} 131r16
+150i5 NUMERO_FALLOS{integer} 172r100 175r15 184m17 184r34 187r104
+151N5 NUMERO_FALLOS_PERMITIDOS 172r115 175r31 187r119
+152a5 CARACTERES_ESPECIALES{string} 170r125 182r124
+156b5 PALABRA_DESCUBIERTA{boolean} 170m148 170r148 172r141 175r69 182m147
+. 182r147 187r145
+157a5 LETRA_ACTUAL{string} 177m13 178r80
+158r5 LETRAS_USADAS{19|79R9} 170r110 172r85 178m94 178r94 182r109 187r89
+159b5 ACIERTO{boolean} 172r33 178m13 181r16 187r37
+161r5 LISTA_PALABRAS{9|57R9[23]} 166m5 168r62
+168a9 PALABRA_A_DESCUBRIR{string} 169r61 170r59 172r43 182r58 187r47
+169a9 PALABRA_A_DESCUBRIR_MAYUSCULAS{string} 170r79 178r48 182r78
+170a9 PALABRA_ENMASCARADA{string} 172r64 182r17 187r68
+X 27 system.ads
 67M9*Address
-X 29 s-memory.ads
-53V13*Alloc{19|67M9} 103i<c,__gnat_malloc>22
+X 39 s-memory.ads
+53V13*Alloc{27|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{19|67M9} 105i<c,__gnat_realloc>22
-X 35 s-stalib.adb
+76V13*Realloc{27|67M9} 105i<c,__gnat_realloc>22
+X 46 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

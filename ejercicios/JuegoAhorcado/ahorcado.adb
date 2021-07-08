@@ -10,6 +10,8 @@ use Ada.Strings.Unbounded;
 with Ada.Characters.Handling;
 use Ada.Characters.Handling;
 
+with Ada.Containers;
+with Ada.Containers.Vectors;
 
 -- Al arrancar el juego, leer las palabras / frases de un fichero.
 -- En el fichero habrá 10 palabras/frases
@@ -21,15 +23,14 @@ procedure Ahorcado is
     package vector_palabras is new Ada.Containers.Vectors
         (
         Index_Type => Natural, -- Incluye el CERO      POSITIVE EMPIEZA EN EL 1
-        Element_Type => String
+        Element_Type => Unbounded_String
         );
     use vector_palabras;
-
     
     ---------------------------------------------------------------------------
     --  Calcular un fichero de palabras
     ---------------------------------------------------------------------------
-    function CARGAR_FICHERO_PALABRAS (NOMBRE_FICHERO: String) return String_Array is
+    function CARGAR_FICHERO_PALABRAS (NOMBRE_FICHERO: String) return Vector is
         Lista_Palabras : Vector;
         mi_fichero: File_Type;
     begin
@@ -41,7 +42,7 @@ procedure Ahorcado is
                 );
         
         while not End_Of_File(mi_fichero) loop
-            Lista_Palabras.append(Get_Line(mi_fichero));
+            Lista_Palabras.append(To_Unbounded_String(Get_Line(mi_fichero)));
         end loop;
         
         Close(mi_fichero);
@@ -53,8 +54,7 @@ procedure Ahorcado is
     ---------------------------------------------------------------------------
     function PEDIR_PALABRA_AL_AZAR (LISTA_PALABRAS : Vector) return String is
     begin
-        --return To_String(LISTA_PALABRAS(7));
-        return LISTA_PALABRAS(7);
+        return To_String(LISTA_PALABRAS(7));
     end PEDIR_PALABRA_AL_AZAR;
     
     ---------------------------------------------------------------------------
