@@ -8,7 +8,7 @@ use Ada.Strings.Unbounded;
 
 with Ada.Containers.Vectors;
 
-procedure Jugadores is
+package body Jugadores is
     
     type JUGADOR is record
         Nombre: Unbounded_String;
@@ -24,12 +24,12 @@ procedure Jugadores is
     use vector_jugadores;
     
     JUGADORES: Vector;
-    
+    NOMBRE_FICHERO: constant String := "jugadores.txt";
+
     ---------------------------------------------------------------------------
     --  MOSTRAR ESTADISTICAS DE UN JUGADOR
     ---------------------------------------------------------------------------
-    PROCEDURE MOSTRAR_ESTADISTICAS_JUGADOR(    JUGADORES: Vector; 
-                                               NOMBRE: Unbounded_String  ) is
+    PROCEDURE MOSTRAR_ESTADISTICAS_JUGADOR(    NOMBRE: Unbounded_String  ) is
     begin
         for UN_JUGADOR of JUGADORES loop
             if UN_JUGADOR.Nombre = NOMBRE then
@@ -44,8 +44,7 @@ procedure Jugadores is
     ---------------------------------------------------------------------------
     --  ALTA DE UN NUEVO JUGADOR
     ---------------------------------------------------------------------------
-    procedure ALTA_JUGADOR (    JUGADORES: in out Vector; 
-                                NOMBRE: Unbounded_String;
+    procedure ALTA_JUGADOR (    NOMBRE: Unbounded_String;
                                 PARTIDAS_JUGADAS: Integer:= 0;
                                 PARTIDAS_GANADAS: Integer:= 0) is
         UN_JUGADOR: JUGADOR;                                
@@ -58,8 +57,7 @@ procedure Jugadores is
     ---------------------------------------------------------------------------
     --  ANOTAR RESULTADO PARA JUGADOR
     ---------------------------------------------------------------------------
-    PROCEDURE ANOTAR_RESULTADO_PARTIDA(    JUGADORES: in out Vector; 
-                                           NOMBRE: Unbounded_String;
+    PROCEDURE ANOTAR_RESULTADO_PARTIDA(    NOMBRE: Unbounded_String;
                                            RESULTADO: Boolean) is
     begin
         for UN_JUGADOR of JUGADORES loop
@@ -74,10 +72,10 @@ procedure Jugadores is
     ---------------------------------------------------------------------------
     --  Calcular un fichero de palabras
     ---------------------------------------------------------------------------
-    function CARGAR_JUGADORES (NOMBRE_FICHERO: String) return Vector is
-        JUGADORES: Vector;
+    procedure CARGAR_JUGADORES is
         mi_fichero: File_Type;
         NOMBRE: Unbounded_String;
+        JUGADAS: Integer;
     begin
     
         Open (
@@ -89,20 +87,20 @@ procedure Jugadores is
         while not End_Of_File(mi_fichero) loop
             NOMBRE:= To_Unbounded_String(Get_Line(mi_fichero));
             if LENGTH(NOMBRE) /=0 then
-                ALTA_JUGADOR(JUGADORES, 
+                JUGADAS:= Integer'Value(Get_Line(mi_fichero));
+                ALTA_JUGADOR(
                          NOMBRE, 
-                         Integer'Value(Get_Line(mi_fichero)), 
+                         JUGADAS, 
                          Integer'Value(Get_Line(mi_fichero)));
             end if;
         end loop;
         
         Close(mi_fichero);
-        return JUGADORES;
     end CARGAR_JUGADORES;   
     ---------------------------------------------------------------------------
     --  GUARDAR EL VECTOR DE JUGADORES EN EL FICHERO ** DESPUES 
     ---------------------------------------------------------------------------
-    procedure GUARDAR_JUGADORES (NOMBRE_FICHERO: String; JUGADORES: Vector) is
+    procedure GUARDAR_JUGADORES is
         mi_fichero: File_Type;
         --PRIMERA_LINEA: Boolean:= True;
     begin
@@ -130,22 +128,22 @@ procedure Jugadores is
     end GUARDAR_JUGADORES;       
     
     
-begin
-    JUGADORES:= CARGAR_JUGADORES("jugadores_nuevo.txt");
+--begin
+--    JUGADORES:= CARGAR_JUGADORES("jugadores_nuevo.txt");
     -- Listado de Jugadores por consola
-    for UN_JUGADOR of JUGADORES loop
-        Put_Line(TO_STRING(UN_JUGADOR.Nombre));
+--    for UN_JUGADOR of JUGADORES loop
+--        Put_Line(TO_STRING(UN_JUGADOR.Nombre));
         --Put_Line(TO_STRING(UN_JUGADOR.Nombre)(1..4));
-        Put_Line(UN_JUGADOR.Partidas_Jugadas'Image);
-        Put_Line(UN_JUGADOR.Partidas_Ganadas'Image);
-    end loop;
+--        Put_Line(UN_JUGADOR.Partidas_Jugadas'Image);
+--        Put_Line(UN_JUGADOR.Partidas_Ganadas'Image);
+--    end loop;
 
-    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Ivan"));
-    ALTA_JUGADOR (    JUGADORES, TO_Unbounded_String("Lucas") );
-    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES,TO_Unbounded_String( "Lucas"));
-    ANOTAR_RESULTADO_PARTIDA(    JUGADORES, TO_Unbounded_String("Lucas"), TRUE);
-    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
-    ANOTAR_RESULTADO_PARTIDA(    JUGADORES, TO_Unbounded_String("Lucas"), FALSE);
-    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
-    GUARDAR_JUGADORES("jugadores_nuevo2.txt",JUGADORES);
+--    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Ivan"));
+--    ALTA_JUGADOR (    JUGADORES, TO_Unbounded_String("Lucas") );
+--    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES,TO_Unbounded_String( "Lucas"));
+--    ANOTAR_RESULTADO_PARTIDA(    JUGADORES, TO_Unbounded_String("Lucas"), TRUE);
+--    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
+--    ANOTAR_RESULTADO_PARTIDA(    JUGADORES, TO_Unbounded_String("Lucas"), FALSE);
+--    MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
+--    GUARDAR_JUGADORES("jugadores_nuevo2.txt",JUGADORES);
 end;

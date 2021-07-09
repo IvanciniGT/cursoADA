@@ -15,10 +15,11 @@ with Ada.Containers.Vectors;
 
 with CALCULAR_NUMERO_ALEATORIO;
 
--- Al arrancar el juego, leer las palabras / frases de un fichero.
--- En el fichero habrá 10 palabras/frases
--- Las quiero cargar en un array
--- Vamos a elegir la palabra 7
+-- Al arrancar, pedirnos un nombre de usuario
+-- Cuando acabe una partida, 
+    -- Que me muestra mis estadisticas
+    -- que me pida si quiero jugar otra
+
 
 procedure Ahorcado is
     

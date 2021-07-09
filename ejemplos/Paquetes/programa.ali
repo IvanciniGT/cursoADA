@@ -1,0 +1,22 @@
+V "GNAT Lib v8"
+M P W=b
+P ZX
+
+RN
+RV SPARK_05
+
+U programa%b		programa.adb		e5bed743 NE OO SU
+W paquete%s		paquete.adb		paquete.ali
+
+D paquete.ads		20210709090353 f72d3ecb paquete%s
+D programa.adb		20210709085800 1293e988 programa%b
+D system.ads		20200304083000 4635ec04 system%s
+X 1 paquete.ads
+1K9*Paquete 8e12 2|1w6 2r5
+3V14*doblar{integer} 2|7s23
+4U15*imprimir_numero 2|8s5
+6U15*reimprimir_ultimo_numero 2|9s5
+X 2 programa.adb
+4U11*Programa 4b11 10l5 10t13
+5i5 NUMERO_DOBLADO{integer} 7m5 8r21
+

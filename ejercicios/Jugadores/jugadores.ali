@@ -1,5 +1,4 @@
 V "GNAT Lib v8"
-M P W=b
 P ZX
 
 RN
@@ -16,7 +15,6 @@ RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_NESTED_FINALIZATION
 RV NO_SECONDARY_STACK
-RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_STREAMS
 RV NO_UNCHECKED_ACCESS
@@ -26,10 +24,10 @@ RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_ALIASING
 RV NO_IMPLICIT_LOOPS
-RV STATIC_DISPATCH_TABLES
+RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U jugadores%b		jugadores.adb		aa2ea865 NE OO SU
+U jugadores%b		jugadores.adb		e4a893e4 OO PF PK
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 Z ada.containers.generic_array_sort%s
@@ -45,7 +43,6 @@ Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.unchecked_deallocation%s
 Z system%s		system.ads		system.ali
-Z system.address_image%s  s-addima.adb		s-addima.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
@@ -59,6 +56,13 @@ Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 Z system.val_int%s	s-valint.adb		s-valint.ali
+
+U jugadores%s		jugadores.ads		c9009fe7 EE NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.vectors%s
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
@@ -83,9 +87,9 @@ D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20200304083000 eff36322 ada.unchecked_deallocation%s
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
-D jugadores.adb		20210709081400 b0c7b7d2 jugadores%b
+D jugadores.ads		20210709091957 5bf4330a jugadores%s
+D jugadores.adb		20210709093758 a5b5bf59 jugadores%b
 D system.ads		20200304083000 4635ec04 system%s
-D s-addima.ads		20200304083000 a1ec9d3a system.address_image%s
 D s-atocou.ads		20200304083000 b45c2d8d system.atomic_counters%s
 D s-atocou.adb		20200304083000 b65612c0 system.atomic_counters%b
 D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
@@ -115,89 +119,81 @@ D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
 D s-valint.ads		20200304083000 48a52a3f system.val_int%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 24|3r6 4r5 6r6 7r5 9r6 19r37
+16K9*Ada 20e8 24|1r6 2r5 4r6 25|3r6 4r5 6r6 7r5 9r6 19r37
 X 4 a-contai.ads
-16K13*Containers 24e19 24|9r10 19r41
+16K13*Containers 24e19 24|4r10 25|9r10 19r41
 X 8 a-convec.ads
-41I9 Index_Type 24|21r9
-42+9 Element_Type 24|22r9
-46k24*Vectors 518e27 24|9w21 19r52
-57R9 Vector<11|43R9> 24|26r16[19] 31r59[19] 47r51[19] 61r62[19] 77r63[19]
-. 78r20[19] 105r69[19]
-245U14 Append 24|56s19[19]
+41I9 Index_Type 25|21r9
+42+9 Element_Type 25|22r9
+46k24*Vectors 518e27 24|4w21 25|9w21 19r52
+57R9*Vector<11|43R9> 25|26r16[19]
+245U14*Append 25|55s19[19]
 X 13 a-iteint.ads
 24h9 Forward_Iterator
 32h9 Reversible_Iterator<24R9[8|72]>
 X 15 a-string.ads
-16K13*Strings 35e16 24|6r10 7r9
+16K13*Strings 35e16 24|1r10 2r9 25|6r10 7r9
 X 17 a-strunb.ads
-76K21*Unbounded 490e26 24|6w18 7r17
-79R9*Unbounded_String<11|43R9> 474e14 24|14r17 32r56 48r41 62r52 80r17
-84V13*Length{natural} 24|91s16
-94V13*To_Unbounded_String{79R9} 24|90s22 143s45 144s34 145s44 146s45 147s45
-. 148s45 149s45
-100V13*To_String{string} 24|36s40 122s35 137s18
-166V14*"="{boolean} 24|35s34 66s34
+76K21*Unbounded 490e26 24|1w18 2r17 25|6w18 7r17
+79R9*Unbounded_String<11|43R9> 474e14 24|8r54 10r41 14r52 25|14r17 32r56
+. 47r41 60r52 77r17
+84V13*Length{natural} 25|89s16
+94V13*To_Unbounded_String{79R9} 25|88s22
+100V13*To_String{string} 25|36s40 120s35
+166V14*"="{boolean} 25|35s34 64s34
 X 19 a-textio.ads
-49K13*Text_IO 471e16 24|3w10 4r9
-52P9*File_Type 24|79r21 106r21
-53n23*In_File{53E9} 24|85r25
-53n32*Out_File{53E9} 24|112r25
-86U14*Create 24|110s9
-87p7 File{52P9} 24|111r17
-88e7 Mode{53E9} 24|112r17
-89a7 Name{string} 24|113r17
-92U14*Open 24|83s9
-93p7 File{52P9} 24|84r17
-94e7 Mode{53E9} 24|85r17
-95a7 Name{string} 24|86r17
-98U14*Close 24|99s9 128s9
-183V13*End_Of_File{boolean} 24|89s19
-253V13*Get_Line{string} 24|90s42 94s40 95s40
-259U14*Put_Line 24|122s13 124s13 125s13
-263U14*Put_Line 24|36s17 38s17 39s17 137s9 139s9 140s9
-X 24 jugadores.adb
-11U11*Jugadores 11b11 151t4
-13R10 JUGADOR 17e15 22r25 51r21
-14r9 Nombre{17|79R9} 35r27 36r61 53m20 66r27 122r56 137r39
-15i9 Partidas_Jugadas{integer} 38r61 54m20 67m28 67r59 124r46 139r29
-16i9 Partidas_Ganadas{integer} 39r61 55m20 69m32 69r63 125r46 140r29
+49K13*Text_IO 471e16 25|3w10 4r9
+52P9*File_Type 25|76r21 104r21
+53n23*In_File{53E9} 25|83r25
+53n32*Out_File{53E9} 25|110r25
+86U14*Create 25|108s9
+87p7 File{52P9} 25|109r17
+88e7 Mode{53E9} 25|110r17
+89a7 Name{string} 25|111r17
+92U14*Open 25|81s9
+93p7 File{52P9} 25|82r17
+94e7 Mode{53E9} 25|83r17
+95a7 Name{string} 25|84r17
+98U14*Close 25|98s9 126s9
+183V13*End_Of_File{boolean} 25|87s19
+253V13*Get_Line{string} 25|88s42 90s41 94s40
+259U14*Put_Line 25|120s13 122s13 123s13
+263U14*Put_Line 25|36s17 38s17 39s17
+X 24 jugadores.ads
+6K9*Jugadores 20e4 25|11b14 149t4
+8U15*MOSTRAR_ESTADISTICAS_JUGADOR 8>46 25|32b15 42l9 42t37
+8r46 NOMBRE{17|79R9} 25|32b48 35r36
+10U15*ALTA_JUGADOR 10>33 11>33 12>33 25|47b15 56l9 56t21 91s17
+10r33 NOMBRE{17|79R9} 25|47b33 52r30
+11i33 PARTIDAS_JUGADAS{integer} 25|48b33 53r40
+12i33 PARTIDAS_GANADAS{integer} 25|49b33 54r40
+14U15*ANOTAR_RESULTADO_PARTIDA 14>44 15>44 25|60b15 71l9 71t33
+14r44 NOMBRE{17|79R9} 25|60b44 64r36
+15b44 RESULTADO{boolean} 25|61b44 66r20
+17U15*CARGAR_JUGADORES 25|75b15 99l9 99t25
+19U15*GUARDAR_JUGADORES 25|103b15 128l9 128t26
+X 25 jugadores.adb
+13R10 JUGADOR 17e15 22r25 50r21
+14r9*Nombre{17|79R9} 35r27 36r61 52m20 64r27 120r56
+15i9*Partidas_Jugadas{integer} 38r61 53m20 65m28 65r59 122r46
+16i9*Partidas_Ganadas{integer} 39r61 54m20 67m32 67r63 123r46
 19K13 vector_jugadores[8|46] 24r9
-26r5 JUGADORES{8|57R9[19]} 134m5 136r23 143r34 144m23 144r23 145r34 146m34
-. 146r34 147r34 148m34 148r34 149r34 150r46
-31U15 MOSTRAR_ESTADISTICAS_JUGADOR 31b15 31>48 32>48 42l9 42t37 143s5 145s5
-. 147s5 149s5
-31r48 JUGADORES{8|57R9[19]} 34r27
-32r48 NOMBRE{17|79R9} 35r36
+26r5 JUGADORES{8|57R9[19]} 34r27 55m9 55r9 63m27 63r27 116r27
+27a5 NOMBRE_FICHERO{string} 84r25 111r25
 34r13 UN_JUGADOR{13R10} 35r16 36r50 38r50 39r50
-47U15 ALTA_JUGADOR 47b15 47=33 48>33 49>33 50>33 57l9 57t21 92s17 144s5
-47r33 JUGADORES{8|57R9[19]} 56m9 56r9
-48r33 NOMBRE{17|79R9} 53r30
-49i33 PARTIDAS_JUGADAS{integer} 54r40
-50i33 PARTIDAS_GANADAS{integer} 55r40
-51r9 UN_JUGADOR{13R10} 53m9 54m9 55m9 56r26
-61U15 ANOTAR_RESULTADO_PARTIDA 61b15 61=44 62>44 63>44 73l9 73t33 146s5 148s5
-61r44 JUGADORES{8|57R9[19]} 65m27 65r27
-62r44 NOMBRE{17|79R9} 66r36
-63b44 RESULTADO{boolean} 68r20
-65r13 UN_JUGADOR{13R10} 66r16 67r17 67r48 69r21 69r52
-77V14 CARGAR_JUGADORES{8|57R9[19]} 77b14 77>32 101l9 101t25 134s17
-77a32 NOMBRE_FICHERO{string} 86r25
-78r9 JUGADORES{8|57R9[19]} 92m30 92r30 100r16
-79p9 mi_fichero{19|52P9} 84m25 84r25 89r31 90r51 94r49 95r49 99m15 99r15
-80r9 NOMBRE{17|79R9} 90m13 91r23 93r26
-105U15 GUARDAR_JUGADORES 105b15 105>34 105>58 130l9 130t26 150s5
-105a34 NOMBRE_FICHERO{string} 113r25
-105r58 JUGADORES{8|57R9[19]} 118r27
-106p9 mi_fichero{19|52P9} 111m25 111r25 122r23 124r23 125r23 128m15 128r15
-118r13 UN_JUGADOR{13R10} 122r45 124r35 125r35
-136r9 UN_JUGADOR{13R10} 137r28 139r18 140r18
-X 25 system.ads
+50r9 UN_JUGADOR{13R10} 52m9 53m9 54m9 55r26
+63r13 UN_JUGADOR{13R10} 64r16 65r17 65r48 67r21 67r52
+76p9 mi_fichero{19|52P9} 82m25 82r25 87r31 88r51 90r50 94r49 98m15 98r15
+77r9 NOMBRE{17|79R9} 88m13 89r23 92r26
+78i9 JUGADAS{integer} 90m17 93r26
+104p9 mi_fichero{19|52P9} 109m25 109r25 120r23 122r23 123r23 126m15 126r15
+116r13 UN_JUGADOR{13R10} 120r45 122r35 123r35
+X 26 system.ads
 67M9*Address
 X 36 s-memory.ads
-53V13*Alloc{25|67M9} 103i<c,__gnat_malloc>22
+53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{25|67M9} 105i<c,__gnat_realloc>22
+76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
 X 43 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

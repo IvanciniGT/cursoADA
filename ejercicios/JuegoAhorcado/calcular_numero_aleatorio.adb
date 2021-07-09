@@ -17,3 +17,4 @@ begin
     NUMERO_ALEATORIO := random(MI_GENERADOR); 
     return NUMERO_ALEATORIO;--'Integer;
 end CALCULAR_NUMERO_ALEATORIO;
+
