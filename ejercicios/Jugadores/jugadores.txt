@@ -1,3 +1,6 @@
-Ivan|10|20
-Marco|11|12
-Andres|7|9
+Ivan
+10
+20
+Daniel
+7
+8

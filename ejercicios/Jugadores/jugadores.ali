@@ -1,0 +1,190 @@
+V "GNAT Lib v8"
+M P W=b
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV STATIC_DISPATCH_TABLES
+RV SPARK_05
+
+U jugadores%b		jugadores.adb		88ceeb95 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+Z system%s		system.ads		system.ali
+Z system.address_image%s  s-addima.adb		s-addima.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.val_int%s	s-valint.adb		s-valint.ali
+
+D ada.ads		20200304083000 76789da1 ada%s
+D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
+D a-chlat1.ads		20200304083000 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20200304083000 61e5e089 ada.containers%s
+D a-cgarso.ads		20200304083000 9129bfa8 ada.containers.generic_array_sort%s
+D a-conhel.ads		20200304083000 20298884 ada.containers.helpers%s
+D a-conhel.adb		20200304083000 9cc5095b ada.containers.helpers%b
+D a-convec.ads		20200304083000 7e2b0fdf ada.containers.vectors%s
+D a-convec.adb		20200304083000 1450cb2b ada.containers.vectors%b
+D a-except.ads		20200304083000 291912d5 ada.exceptions%s
+D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
+D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20200304083000 7c7305e9 ada.iterator_interfaces%s
+D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
+D a-string.ads		20200304083000 90ac6797 ada.strings%s
+D a-strmap.ads		20200304083000 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20200304083000 ecdfa332 ada.strings.unbounded%s
+D a-tags.ads		20200304083000 491b781d ada.tags%s
+D a-textio.ads		20200304083000 881db35a ada.text_io%s
+D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20200304083000 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20200304083000 5ab55268 interfaces%s
+D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
+D jugadores.adb		20210709072558 9227f422 jugadores%b
+D system.ads		20200304083000 4635ec04 system%s
+D s-addima.ads		20200304083000 a1ec9d3a system.address_image%s
+D s-atocou.ads		20200304083000 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20200304083000 b65612c0 system.atomic_counters%b
+D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200304083000 54135002 system.exception_table%s
+D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
+D s-finmas.ads		20200304083000 7811a767 system.finalization_masters%s
+D s-finroo.ads		20200304083000 4ff27390 system.finalization_root%s
+D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
+D s-memory.ads		20200304083000 597d6634 system.memory%s
+D s-parame.ads		20200304083000 f896c45c system.parameters%s
+D s-pooglo.ads		20200304083000 ede33ef8 system.pool_global%s
+D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
+D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
+D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
+D s-stalib.ads		20200304083000 09bd3940 system.standard_library%s
+D s-stalib.adb		20200304083000 f2fe2716 system.standard_library%b
+D s-stoele.ads		20200304083000 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20200304083000 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20200304083000 b16154c2 system.storage_pools%s
+D s-stposu.ads		20200304083000 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20200304083000 aedef97e system.stream_attributes%s
+D s-string.ads		20200304083000 8fe54fb7 system.strings%s
+D s-ststop.ads		20200304083000 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
+D s-valint.ads		20200304083000 48a52a3f system.val_int%s
+D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 24|3r6 4r5 6r6 7r5 9r6 19r37
+X 4 a-contai.ads
+16K13*Containers 24e19 24|9r10 19r41
+X 8 a-convec.ads
+41I9 Index_Type 24|21r9
+42+9 Element_Type 24|22r9
+46k24*Vectors 518e27 24|9w21 19r52
+57R9 Vector<11|43R9> 24|26r16[19] 31r59[19] 47r51[19] 61r62[19] 77r63[19]
+. 78r20[19]
+245U14 Append 24|56s19[19]
+X 13 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[8|72]>
+X 15 a-string.ads
+16K13*Strings 35e16 24|6r10 7r9
+X 17 a-strunb.ads
+76K21*Unbounded 490e26 24|6w18 7r17
+79R9*Unbounded_String<11|43R9> 474e14 24|14r17 32r56 48r41 62r52
+94V13*To_Unbounded_String{79R9} 24|90s26 112s45 113s34 114s44 115s45 116s45
+. 117s45 118s45
+100V13*To_String{string} 24|36s40 106s18
+166V14*"="{boolean} 24|35s34 66s34
+X 19 a-textio.ads
+49K13*Text_IO 471e16 24|3w10 4r9
+52P9*File_Type 24|79r21
+53n23*In_File{53E9} 24|84r25
+92U14*Open 24|82s9
+93p7 File{52P9} 24|83r17
+94e7 Mode{53E9} 24|84r17
+95a7 Name{string} 24|85r17
+98U14*Close 24|95s9
+183V13*End_Of_File{boolean} 24|88s19
+253V13*Get_Line{string} 24|90s46 91s40 92s40
+263U14*Put_Line 24|36s17 38s17 39s17 106s9 108s9 109s9
+X 24 jugadores.adb
+11U11*Jugadores 11b11 119t4
+13R10 JUGADOR 17e15 22r25 51r21
+14r9 Nombre{17|79R9} 35r27 36r61 53m20 66r27 106r39
+15i9 Partidas_Jugadas{integer} 38r61 54m20 67m28 67r59 108r29
+16i9 Partidas_Ganadas{integer} 39r61 55m20 69m32 69r63 109r29
+19K13 vector_jugadores[8|46] 24r9
+26r5 JUGADORES{8|57R9[19]} 103m5 105r23 112r34 113m23 113r23 114r34 115m34
+. 115r34 116r34 117m34 117r34 118r34
+31U15 MOSTRAR_ESTADISTICAS_JUGADOR 31b15 31>48 32>48 42l9 42t37 112s5 114s5
+. 116s5 118s5
+31r48 JUGADORES{8|57R9[19]} 34r27
+32r48 NOMBRE{17|79R9} 35r36
+34r13 UN_JUGADOR{13R10} 35r16 36r50 38r50 39r50
+47U15 ALTA_JUGADOR 47b15 47=33 48>33 49>33 50>33 57l9 57t21 89s13 113s5
+47r33 JUGADORES{8|57R9[19]} 56m9 56r9
+48r33 NOMBRE{17|79R9} 53r30
+49i33 PARTIDAS_JUGADAS{integer} 54r40
+50i33 PARTIDAS_GANADAS{integer} 55r40
+51r9 UN_JUGADOR{13R10} 53m9 54m9 55m9 56r26
+61U15 ANOTAR_RESULTADO_PARTIDA 61b15 61=44 62>44 63>44 73l9 73t33 115s5 117s5
+61r44 JUGADORES{8|57R9[19]} 65m27 65r27
+62r44 NOMBRE{17|79R9} 66r36
+63b44 RESULTADO{boolean} 68r20
+65r13 UN_JUGADOR{13R10} 66r16 67r17 67r48 69r21 69r52
+77V14 CARGAR_JUGADORES{8|57R9[19]} 77b14 77>32 97l9 97t25 103s17
+77a32 NOMBRE_FICHERO{string} 85r25
+78r9 JUGADORES{8|57R9[19]} 89m26 89r26 96r16
+79p9 mi_fichero{19|52P9} 83m25 83r25 88r31 90r55 91r49 92r49 95m15 95r15
+105r9 UN_JUGADOR{13R10} 106r28 108r18 109r18
+X 25 system.ads
+67M9*Address
+X 36 s-memory.ads
+53V13*Alloc{25|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{25|67M9} 105i<c,__gnat_realloc>22
+X 43 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+
