@@ -27,10 +27,8 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U ahorcado%b		ahorcado.adb		d4accf5e OO PF PK
+U jugadores%b		jugadores.adb		283d628f OO PF PK
 W ada%s			ada.ads			ada.ali
-W ada.characters%s	a-charac.ads		a-charac.ali
-W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 Z ada.containers.generic_array_sort%s
 Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
@@ -40,21 +38,14 @@ Z ada.finalization%s	a-finali.ads		a-finali.ali
 Z ada.iterator_interfaces%s
 Z ada.streams%s		a-stream.adb		a-stream.ali
 W ada.strings%s		a-string.ads		a-string.ali
-W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
-W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
-W ada.strings.maps.constants%s  a-stmaco.ads	a-stmaco.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.unchecked_deallocation%s
-W calcular_numero_aleatorio%b  calcular_numero_aleatorio.adb  calcular_numero_aleatorio.ali
-Z interfaces%s		interfac.ads		interfac.ali
 Z system%s		system.ads		system.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
-Z system.concat_4%s	s-conca4.adb		s-conca4.ali
 Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 Z system.img_int%s	s-imgint.adb		s-imgint.ali
-Z system.img_lli%s	s-imglli.adb		s-imglli.ali
 Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
@@ -64,12 +55,17 @@ Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.val_int%s	s-valint.adb		s-valint.ali
 
-U ahorcado%s		ahorcado.ads		5d17c147 EE NE OO PK
+U jugadores%s		jugadores.ads		05956e8c EE NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.vectors%s
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 
 D ada.ads		20200304083000 76789da1 ada%s
 D a-charac.ads		20200304083000 2d3ec45b ada.characters%s
-D a-chahan.ads		20200304083000 1601a50f ada.characters.handling%s
 D a-chlat1.ads		20200304083000 66457d31 ada.characters.latin_1%s
 D a-contai.ads		20200304083000 61e5e089 ada.containers%s
 D a-cgarso.ads		20200304083000 9129bfa8 ada.containers.generic_array_sort%s
@@ -81,39 +77,31 @@ D a-except.ads		20200304083000 291912d5 ada.exceptions%s
 D a-finali.ads		20200304083000 bf4f806b ada.finalization%s
 D a-ioexce.ads		20200304083000 e4a01f64 ada.io_exceptions%s
 D a-iteint.ads		20200304083000 7c7305e9 ada.iterator_interfaces%s
-D a-numeri.ads		20200304083000 bb51c45a ada.numerics%s
-D a-nudira.ads		20200304083000 71e55def ada.numerics.discrete_random%s
 D a-stream.ads		20200304083000 119b8fb3 ada.streams%s
 D a-string.ads		20200304083000 90ac6797 ada.strings%s
-D a-strfix.ads		20200304083000 d07c346e ada.strings.fixed%s
 D a-strmap.ads		20200304083000 e8bb714a ada.strings.maps%s
-D a-stmaco.ads		20200304083000 1c0e5368 ada.strings.maps.constants%s
 D a-strunb.ads		20200304083000 ecdfa332 ada.strings.unbounded%s
 D a-tags.ads		20200304083000 491b781d ada.tags%s
 D a-textio.ads		20200304083000 881db35a ada.text_io%s
 D a-unccon.ads		20200304083000 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20200304083000 eff36322 ada.unchecked_deallocation%s
-D ahorcado.ads		20210709104558 5d17c147 ahorcado%s
-D ahorcado.adb		20210709114052 a3d31e9f ahorcado%b
-D calcular_numero_aleatorio.adb  20210709112307 8b172db1 calcular_numero_aleatorio%b
 D interfac.ads		20200304083000 5ab55268 interfaces%s
 D i-cstrea.ads		20200304083000 e53d8b8e interfaces.c_streams%s
+D jugadores.ads		20210709094530 9761c261 jugadores%s
+D jugadores.adb		20210709093758 a5b5bf59 jugadores%b
 D system.ads		20200304083000 4635ec04 system%s
 D s-atocou.ads		20200304083000 b45c2d8d system.atomic_counters%s
 D s-atocou.adb		20200304083000 b65612c0 system.atomic_counters%b
 D s-conca2.ads		20200304083000 02a0d7d0 system.concat_2%s
-D s-conca4.ads		20200304083000 7e642b20 system.concat_4%s
 D s-crtl.ads		20200304083000 0ebbdb71 system.crtl%s
 D s-exctab.ads		20200304083000 54135002 system.exception_table%s
 D s-ficobl.ads		20200304083000 078245e4 system.file_control_block%s
 D s-finmas.ads		20200304083000 7811a767 system.finalization_masters%s
 D s-finroo.ads		20200304083000 4ff27390 system.finalization_root%s
 D s-imgint.ads		20200304083000 02dbe0c2 system.img_int%s
-D s-imglli.ads		20200304083000 114f55d1 system.img_lli%s
 D s-memory.ads		20200304083000 597d6634 system.memory%s
 D s-parame.ads		20200304083000 f896c45c system.parameters%s
 D s-pooglo.ads		20200304083000 ede33ef8 system.pool_global%s
-D s-rannum.ads		20200304083000 99ade2f2 system.random_numbers%s
 D s-secsta.ads		20200304083000 283dec34 system.secondary_stack%s
 D s-soflin.ads		20200304083000 a7318a92 system.soft_links%s
 D s-stache.ads		20200304083000 a37c21ec system.stack_checking%s
@@ -128,98 +116,84 @@ D s-string.ads		20200304083000 8fe54fb7 system.strings%s
 D s-ststop.ads		20200304083000 5fbf1b38 system.strings.stream_ops%s
 D s-traent.ads		20200304083000 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20200304083000 34867c83 system.unsigned_types%s
+D s-valint.ads		20200304083000 48a52a3f system.val_int%s
 D s-wchcon.ads		20200304083000 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 28|1r6 2r5 4r6 5r5 7r6 8r5 10r6 11r5 13r6 14r5 16r6 17r6 29r36
-X 2 a-charac.ads
-16K13*Characters 18e19 28|13r10 14r9
-X 3 a-chahan.ads
-36K24*Handling 159e28 28|13w21 14r20
-71V13*To_Upper{string} 28|92s23
-X 5 a-contai.ads
-16K13*Containers 24e19 28|16w10 17r10 29r40
-X 9 a-convec.ads
-41I9 Index_Type 28|31r9
-42+9 Element_Type 28|32r9
-46k24*Vectors 518e27 28|17w21 29r51
-51I12*Extended_Index{integer}
-57R9*Vector<12|43R9> 28|42r22[29]
-245U14*Append 28|68s28[29]
-285V13*First_Index{integer} 28|82s69[29]
-291V13*Last_Index{51I12[28|29]} 28|82s96[29]
-X 14 a-iteint.ads
+16K9*Ada 20e8 24|1r6 2r5 4r6 25|3r6 4r5 6r6 7r5 9r6 19r37
+X 4 a-contai.ads
+16K13*Containers 24e19 24|4r10 25|9r10 19r41
+X 8 a-convec.ads
+41I9 Index_Type 25|21r9
+42+9 Element_Type 25|22r9
+46k24*Vectors 518e27 24|4w21 25|9w21 19r52
+57R9*Vector<11|43R9> 25|26r16[19]
+245U14*Append 25|55s19[19]
+X 13 a-iteint.ads
 24h9 Forward_Iterator
-32h9 Reversible_Iterator<24R9[9|72]>
-X 18 a-string.ads
-16K13*Strings 35e16 28|4r10 5r9 7r10 8r9 10r10 11r9
-X 19 a-strfix.ads
-18K21*Fixed 251e22 28|4w18 5r17
-36V13*Index{natural} 28|118s17
-X 20 a-strmap.ads
-38K21*Maps 411e21 28|10r18 11r17
-107A9*Character_Mapping(character)
-X 21 a-stmaco.ads
-38K26*Constants 915e31 28|10w23 11r22
-57a4*Upper_Case_Map{20|107A9} 28|161r64
-X 22 a-strunb.ads
-76K21*Unbounded 490e26 28|7w18 8r17
-79R9*Unbounded_String<12|43R9> 474e14 28|32r25 45r20 49r26 50r26 51r28
-84V13*Length{natural} 28|117s35 136s12
-94V13*To_Unbounded_String{79R9} 28|45s40 68s35
-100V13*To_String{string} 28|133s43 134s38
-123V14*"&"{79R9} 28|103s44
-139V13*Element{character} 28|118s52 119s53
-143U14*Replace_Element 28|120s17
-166V14*"="{boolean} 9|44i19 28|123s53
-230V13*Index{natural} 28|102s12 104s16 119s26
-316V13*Translate{79R9} 28|161s33
-X 24 a-textio.ads
-49K13*Text_IO 471e16 28|1w10 2r9
-52P9*File_Type 28|58r21
-53n23*In_File{53E9} 28|63r25
-92U14*Open 28|61s9
-93p7 File{52P9} 28|62r17
-94e7 Mode{53E9} 28|63r17
-95a7 Name{string} 28|64r17
-98U14*Close 28|71s9
-183V13*End_Of_File{boolean} 28|67s19
-253V13*Get_Line{string} 28|68s55
-256V13*Get_Line{string} 28|92s32
-263U14*Put_Line 28|91s9 133s9 134s9 138s17 140s17 142s17 144s21 149s9
-X 27 ahorcado.ads
-2K10*Ahorcado 19l5 19e13 28|27b14 186l5 186t13
-4V14*JUGAR_PARTIDA{boolean} 28|154b14 184l9 184t22
-X 28 ahorcado.adb
-29K13 vector_palabras[9|46] 34r9
-40N5 NUMERO_FALLOS_PERMITIDOS 143r36 149r59 167r31
-41a5 CARACTERES_ESPECIALES{string} 118r24
-42r5 LISTA_PALABRAS{9|57R9[29]} 68m13 68r13 82r54 82r81 83r32
-43a5 NOMBRE_FICHERO{string} 64r25
-45r5 LETRAS_USADAS{22|79R9} 102r20 103m13 103r30 119r33 134r48 136r19
-46a5 LETRA_ACTUAL{string} 92m9 102r35 103r46 104r47
-47b5 ACIERTO{boolean} 100m9 105m17 139r19 173r16
-48i5 NUMERO_FALLOS{integer} 143r20 149r31 167r15 176m17 176r34
-49r5 PALABRA_A_DESCUBRIR{22|79R9} 83m9 116r32 117r42 123r55 161r43
-50r5 PALABRA_ENMASCARADA{22|79R9} 116m9 120m33 120r33 123r33 133r53
-51r5 PALABRA_EN_MAYUSCULAS{22|79R9} 104r24 118r60 119r61 161m9
-52b5 PALABRA_DESCUBIERTA{boolean} 123m9 137r16 167r69 183r16
-57U15 CARGAR_FICHERO_PALABRAS 57b15 73l9 73t32 158s9
-58p9 mi_fichero{24|52P9} 62m25 62r25 67r31 68r64 71m15 71r15
-79U15 PEDIR_PALABRA_AL_AZAR 79b15 84l9 84t30 160s9
-80i9 NUMERO_ALEATORIO{integer} 82m9 83r47
-89U15 PEDIR_LETRA 89b15 93l9 93t20 169s13
-98U15 RESULTADO_DE_LA_RONDA 98b15 109l9 109t30 170s13
-114U15 ENMASCARAR_PALABRA 114b15 124l9 124t27 162s9 174s17
-117i13 INDICE_ACTUAL{integer} 118r82 119r83 120r53
-129U15 PINTAR_ESTADO_PARTIDA 129b15 151t8 164s9 179s13
-X 29 calcular_numero_aleatorio.adb
-6V10*CALCULAR_NUMERO_ALEATORIO{integer} 28|19w6 82s28
-X 32 system.ads
+32h9 Reversible_Iterator<24R9[8|72]>
+X 15 a-string.ads
+16K13*Strings 35e16 24|1r10 2r9 25|6r10 7r9
+X 17 a-strunb.ads
+76K21*Unbounded 490e26 24|1w18 2r17 25|6w18 7r17
+79R9*Unbounded_String<11|43R9> 474e14 24|8r54 10r41 14r52 25|14r17 32r56
+. 47r41 60r52 77r17
+84V13*Length{natural} 25|89s16
+94V13*To_Unbounded_String{79R9} 25|88s22
+100V13*To_String{string} 25|36s40 120s35
+166V14*"="{boolean} 25|35s34 64s34
+X 19 a-textio.ads
+49K13*Text_IO 471e16 25|3w10 4r9
+52P9*File_Type 25|76r21 104r21
+53n23*In_File{53E9} 25|83r25
+53n32*Out_File{53E9} 25|110r25
+86U14*Create 25|108s9
+87p7 File{52P9} 25|109r17
+88e7 Mode{53E9} 25|110r17
+89a7 Name{string} 25|111r17
+92U14*Open 25|81s9
+93p7 File{52P9} 25|82r17
+94e7 Mode{53E9} 25|83r17
+95a7 Name{string} 25|84r17
+98U14*Close 25|98s9 126s9
+183V13*End_Of_File{boolean} 25|87s19
+253V13*Get_Line{string} 25|88s42 90s41 94s40
+259U14*Put_Line 25|120s13 122s13 123s13
+263U14*Put_Line 25|36s17 38s17 39s17
+X 24 jugadores.ads
+6K9*Jugadores 20e4 25|11b14 149t4
+8U15*MOSTRAR_ESTADISTICAS_JUGADOR 8>46 25|32b15 42l9 42t37
+8r46 NOMBRE{17|79R9} 25|32b48 35r36
+10U15*ALTA_JUGADOR 10>33 11>33 12>33 25|47b15 56l9 56t21 91s17
+10r33 NOMBRE{17|79R9} 25|47b33 52r30
+11i33 PARTIDAS_JUGADAS{integer} 25|48b33 53r40
+12i33 PARTIDAS_GANADAS{integer} 25|49b33 54r40
+14U15*ANOTAR_RESULTADO_PARTIDA 14>44 15>44 25|60b15 71l9 71t33
+14r44 NOMBRE{17|79R9} 25|60b44 64r36
+15b44 RESULTADO{boolean} 25|61b44 66r20
+17U15*CARGAR_JUGADORES 25|75b15 99l9 99t25
+X 25 jugadores.adb
+13R10 JUGADOR 17e15 22r25 50r21
+14r9*Nombre{17|79R9} 35r27 36r61 52m20 64r27 120r56
+15i9*Partidas_Jugadas{integer} 38r61 53m20 65m28 65r59 122r46
+16i9*Partidas_Ganadas{integer} 39r61 54m20 67m32 67r63 123r46
+19K13 vector_jugadores[8|46] 24r9
+26r5 JUGADORES{8|57R9[19]} 34r27 55m9 55r9 63m27 63r27 116r27
+27a5 NOMBRE_FICHERO{string} 84r25 111r25
+34r13 UN_JUGADOR{13R10} 35r16 36r50 38r50 39r50
+50r9 UN_JUGADOR{13R10} 52m9 53m9 54m9 55r26
+63r13 UN_JUGADOR{13R10} 64r16 65r17 65r48 67r21 67r52
+76p9 mi_fichero{19|52P9} 82m25 82r25 87r31 88r51 90r50 94r49 98m15 98r15
+77r9 NOMBRE{17|79R9} 88m13 89r23 92r26
+78i9 JUGADAS{integer} 90m17 93r26
+103U15 GUARDAR_JUGADORES 103b15 128l9 128t26
+104p9 mi_fichero{19|52P9} 109m25 109r25 120r23 122r23 123r23 126m15 126r15
+116r13 UN_JUGADOR{13R10} 120r45 122r35 123r35
+X 26 system.ads
 67M9*Address
-X 44 s-memory.ads
-53V13*Alloc{32|67M9} 103i<c,__gnat_malloc>22
+X 36 s-memory.ads
+53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{32|67M9} 105i<c,__gnat_realloc>22
-X 52 s-stalib.adb
+76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
+X 43 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

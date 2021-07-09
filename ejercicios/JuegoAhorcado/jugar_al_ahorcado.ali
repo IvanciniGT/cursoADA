@@ -1,0 +1,19 @@
+V "GNAT Lib v8"
+M P W=b
+P ZX
+
+RN
+RV SPARK_05
+
+U jugar_al_ahorcado%b	jugar_al_ahorcado.adb	fb1cb47b NE OO SU IU
+W juego%s		juego.adb		juego.ali
+
+D juego.ads		20210709114211 4babb1d5 juego%s
+D jugar_al_ahorcado.adb	20210709114419 b0b705ae jugar_al_ahorcado%b
+D system.ads		20200304083000 4635ec04 system%s
+X 1 juego.ads
+2K9*Juego 7e10 2|1w6 2r5
+5U15*JUGAR 2|7s5
+X 2 jugar_al_ahorcado.adb
+5U11*JUGAR_AL_AHORCADO 5b11 8l5 8t22
+

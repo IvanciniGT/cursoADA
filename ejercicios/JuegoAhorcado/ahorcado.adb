@@ -7,6 +7,9 @@ use Ada.Strings.Fixed;
 with Ada.Strings.Unbounded;
 use Ada.Strings.Unbounded;
 
+with Ada.Strings.Maps.Constants;
+use Ada.Strings.Maps.Constants;
+
 with Ada.Characters.Handling;
 use Ada.Characters.Handling;
 
@@ -21,7 +24,7 @@ with CALCULAR_NUMERO_ALEATORIO;
     -- que me pida si quiero jugar otra
 
 
-procedure Ahorcado is
+package body Ahorcado is
     
     package vector_palabras is new Ada.Containers.Vectors
         (
@@ -29,12 +32,29 @@ procedure Ahorcado is
         Element_Type => Unbounded_String
         );
     use vector_palabras;
-    
+
+
+    ---------------------------------------------------------------------------
+    --  Variables del Juego
+    ---------------------------------------------------------------------------
+    NUMERO_FALLOS_PERMITIDOS: constant := 6 ;
+    CARACTERES_ESPECIALES: constant String:= "., -()";
+    LISTA_PALABRAS : Vector;
+    NOMBRE_FICHERO: String := "palabras.txt";
+    ---
+    LETRAS_USADAS: Unbounded_String := To_Unbounded_String("");
+    LETRA_ACTUAL: String:= " ";
+    ACIERTO: Boolean:=False;
+    NUMERO_FALLOS: Integer := 0 ;
+    PALABRA_A_DESCUBRIR: Unbounded_String; 
+    PALABRA_ENMASCARADA: Unbounded_String; 
+    PALABRA_EN_MAYUSCULAS: Unbounded_String; 
+    PALABRA_DESCUBIERTA: Boolean;
+
     ---------------------------------------------------------------------------
     --  Calcular un fichero de palabras
     ---------------------------------------------------------------------------
-    function CARGAR_FICHERO_PALABRAS (NOMBRE_FICHERO: String) return Vector is
-        Lista_Palabras : Vector;
+    procedure CARGAR_FICHERO_PALABRAS is
         mi_fichero: File_Type;
     begin
     
@@ -45,97 +65,78 @@ procedure Ahorcado is
                 );
         
         while not End_Of_File(mi_fichero) loop
-            Lista_Palabras.append(To_Unbounded_String(Get_Line(mi_fichero)));
+            LISTA_PALABRAS.append(To_Unbounded_String(Get_Line(mi_fichero)));
         end loop;
         
         Close(mi_fichero);
-        return Lista_Palabras;
+
     end CARGAR_FICHERO_PALABRAS;    
 
 
     ---------------------------------------------------------------------------
     --  Calcular una palabra al azar
     ---------------------------------------------------------------------------
-    function PEDIR_PALABRA_AL_AZAR (LISTA_PALABRAS : Vector) return String is
+    procedure PEDIR_PALABRA_AL_AZAR  is
         NUMERO_ALEATORIO: Integer;
     begin
         NUMERO_ALEATORIO:= CALCULAR_NUMERO_ALEATORIO(LISTA_PALABRAS.FIRST_INDEX,LISTA_PALABRAS.LAST_INDEX);
-        return To_String(LISTA_PALABRAS(NUMERO_ALEATORIO));
+        PALABRA_A_DESCUBRIR := LISTA_PALABRAS(NUMERO_ALEATORIO);
     end PEDIR_PALABRA_AL_AZAR;
     
     ---------------------------------------------------------------------------
     --  Pedir letra al usuairo por pantalla
     ---------------------------------------------------------------------------
-    function PEDIR_LETRA return String is
-        LETRA: String:= " ";
+    procedure PEDIR_LETRA is
     begin
         Put_Line("Qué letra crees que aparece? ");
-        LETRA:=TO_UPPER(Get_Line);
-        return LETRA;
+        LETRA_ACTUAL:=TO_UPPER(Get_Line);
     end PEDIR_LETRA;
     
     ---------------------------------------------------------------------------
     --  Calcular lo que ha pasado con la letra de esta ronda
     ---------------------------------------------------------------------------
-    function RESULTADO_DE_LA_RONDA ( PALABRA_EN_MAYUSCULAS:String; 
-                                     LETRA: String; 
-                                     LETRAS_USADAS: in out Unbounded_String
-                                     ) return Boolean is
-        VALIDA: Boolean :=False;
+    procedure RESULTADO_DE_LA_RONDA is
     begin
-        
+        ACIERTO := False;
         -- Si la letra ya ha sido usada
-        if Index ( LETRAS_USADAS, LETRA) = 0 then
-            LETRAS_USADAS := LETRAS_USADAS & LETRA;
-            if Index ( PALABRA_EN_MAYUSCULAS, LETRA) /= 0 then
-                VALIDA := True;
+        if Index ( LETRAS_USADAS, LETRA_ACTUAL) = 0 then
+            LETRAS_USADAS := LETRAS_USADAS & LETRA_ACTUAL;
+            if Index ( PALABRA_EN_MAYUSCULAS, LETRA_ACTUAL) /= 0 then
+                ACIERTO := True;
             end if;
         end if;
 
-        return VALIDA;
-        
     end RESULTADO_DE_LA_RONDA;
     
     ---------------------------------------------------------------------------
     --  Enmascarar la palabra y Determinar si ya he acertado la palabra
     ---------------------------------------------------------------------------
-    function ENMASCARAR_PALABRA (PALABRA:String; 
-                                 PALABRA_EN_MAYUSCULAS:String; 
-                                 LETRAS_USADAS: Unbounded_String;
-                                 CARACTERES_ESPECIALES:String; 
-                                 PALABRA_DESCUBIERTA: out Boolean) return String is
-        PALABRA_ENMASCARADA: String := PALABRA; 
+    procedure ENMASCARAR_PALABRA is
     begin
-        for INDICE_ACTUAL in 1 .. PALABRA'LENGTH loop
-            if  Index( CARACTERES_ESPECIALES, ""&PALABRA_EN_MAYUSCULAS(INDICE_ACTUAL) ) = 0
-                and then Index( LETRAS_USADAS, ""&PALABRA_EN_MAYUSCULAS(INDICE_ACTUAL) ) = 0 then
-                PALABRA_ENMASCARADA(INDICE_ACTUAL) := '_';
+        PALABRA_ENMASCARADA:=  PALABRA_A_DESCUBRIR; 
+        for INDICE_ACTUAL in 1 .. LENGTH(PALABRA_A_DESCUBRIR) loop
+            if  Index( CARACTERES_ESPECIALES, "" & ELEMENT(PALABRA_EN_MAYUSCULAS,INDICE_ACTUAL) ) = 0
+                and then Index( LETRAS_USADAS, "" & ELEMENT(PALABRA_EN_MAYUSCULAS,INDICE_ACTUAL) ) = 0 then
+                REPLACE_ELEMENT(PALABRA_ENMASCARADA,INDICE_ACTUAL,'_');
             end if;
         end loop;
-        PALABRA_DESCUBIERTA := (PALABRA_ENMASCARADA = PALABRA);
-        return PALABRA_ENMASCARADA;
+        PALABRA_DESCUBIERTA := (PALABRA_ENMASCARADA = PALABRA_A_DESCUBRIR);
     end ENMASCARAR_PALABRA;
     
     ---------------------------------------------------------------------------
     --  Mostrar por pantalla el estado actual de la partida
     ---------------------------------------------------------------------------
-    procedure PINTAR_ESTADO_PARTIDA ( RESULTADO: Boolean; 
-                                      PALABRA: String; 
-                                      PALABRA_ENMASCARADA: String; 
-                                      LETRAS_USADAS: Unbounded_String; 
-                                      NUMERO_FALLOS: Integer;
-                                      NUMERO_FALLOS_PERMITIDOS: Integer;
-                                      PALABRA_DESCUBIERTA: Boolean) is
+    procedure PINTAR_ESTADO_PARTIDA is
     begin
 
         -- Poner la palabra enmascarada
-        Put_Line("PALABRA A ADIVINAR: " & PALABRA_ENMASCARADA);
+        Put_Line("PALABRA A ADIVINAR: " & To_String(PALABRA_ENMASCARADA));
         Put_Line("Letras usadas: " & To_String(LETRAS_USADAS));
         -- Decir si en la última hemos acertado o no
         if LENGTH(LETRAS_USADAS) /=0 then 
             if PALABRA_DESCUBIERTA then 
                 Put_Line("GANASTE !");
-            elsif RESULTADO then 
+            elsif ACIERTO then 
                 Put_Line("Letra adivinada !");
             else
                 Put_Line("Letra no acertada! ");
@@ -149,48 +150,37 @@ procedure Ahorcado is
 
     end;
     
-    ---------------------------------------------------------------------------
-    --  Variables del Juego
-    ---------------------------------------------------------------------------
-    NUMERO_FALLOS: Integer := 0 ;
-    NUMERO_FALLOS_PERMITIDOS: constant := 6 ;
-    CARACTERES_ESPECIALES: constant String:= "., -()";
     
-    --PALABRA_A_DESCUBRIR: String;
-    --PALABRA_ENMASCARADA: String;
-    PALABRA_DESCUBIERTA: Boolean;
-    LETRA_ACTUAL: String:= " ";
-    LETRAS_USADAS: Unbounded_String := To_Unbounded_String("");
-    ACIERTO: Boolean:=False;
-    
-    LISTA_PALABRAS : Vector;
-
-begin
-    
-    -- JUGAR A ADIVINAR LA PALABRA
-    LISTA_PALABRAS:= CARGAR_FICHERO_PALABRAS("palabras.txt");
-    declare
-        PALABRA_A_DESCUBRIR: String := PEDIR_PALABRA_AL_AZAR(LISTA_PALABRAS);
-        PALABRA_A_DESCUBRIR_MAYUSCULAS: String := TO_UPPER( PALABRA_A_DESCUBRIR );
-        PALABRA_ENMASCARADA: String := ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,PALABRA_A_DESCUBRIR_MAYUSCULAS,LETRAS_USADAS, CARACTERES_ESPECIALES, PALABRA_DESCUBIERTA);
+    function JUGAR_PARTIDA return Boolean is
     begin
-        PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
+        
+        -- JUGAR A ADIVINAR LA PALABRA
+        CARGAR_FICHERO_PALABRAS;
+
+        PEDIR_PALABRA_AL_AZAR;
+        PALABRA_EN_MAYUSCULAS:= Translate(PALABRA_A_DESCUBRIR, Upper_Case_Map);
+        ENMASCARAR_PALABRA;
+
+        PINTAR_ESTADO_PARTIDA; 
     
         -- MIENTRAS ME QUEDEN PARTES DEL CUERPO Y ADEMAS QUE AUN FALTEN LETRAS POR DESCUBRIR
         while NUMERO_FALLOS < NUMERO_FALLOS_PERMITIDOS and then not PALABRA_DESCUBIERTA loop
             -- PEDIR LETRA AL USUARIO
-            LETRA_ACTUAL :=PEDIR_LETRA;
-            ACIERTO := RESULTADO_DE_LA_RONDA ( PALABRA_A_DESCUBRIR_MAYUSCULAS, LETRA_ACTUAL, LETRAS_USADAS);
+            PEDIR_LETRA;
+            RESULTADO_DE_LA_RONDA ;
             
             -- Actualizo el numero de fallos y determino si he ganado
             if ACIERTO then 
-                PALABRA_ENMASCARADA:= ENMASCARAR_PALABRA(PALABRA_A_DESCUBRIR,PALABRA_A_DESCUBRIR_MAYUSCULAS,LETRAS_USADAS, CARACTERES_ESPECIALES, PALABRA_DESCUBIERTA);
+                ENMASCARAR_PALABRA;
             else
                 NUMERO_FALLOS := NUMERO_FALLOS + 1;
             end if;
             
-            PINTAR_ESTADO_PARTIDA ( ACIERTO , PALABRA_A_DESCUBRIR, PALABRA_ENMASCARADA, LETRAS_USADAS, NUMERO_FALLOS, NUMERO_FALLOS_PERMITIDOS, PALABRA_DESCUBIERTA); 
+            PINTAR_ESTADO_PARTIDA; 
             
         end loop;
-    end;
+        
+        return PALABRA_DESCUBIERTA;
+    end JUGAR_PARTIDA;
+    
 end AHORCADO;
