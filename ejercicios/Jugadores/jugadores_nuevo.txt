@@ -1,9 +1,12 @@
 Ivan
- 10
  20
+ 10
 Daniel
- 7
  8
+ 7
+Lucas
+ 3
+ 3
 Lucas
  2
  1

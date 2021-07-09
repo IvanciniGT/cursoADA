@@ -77,6 +77,7 @@ procedure Jugadores is
     function CARGAR_JUGADORES (NOMBRE_FICHERO: String) return Vector is
         JUGADORES: Vector;
         mi_fichero: File_Type;
+        NOMBRE: Unbounded_String;
     begin
     
         Open (
@@ -86,21 +87,51 @@ procedure Jugadores is
                 );
         
         while not End_Of_File(mi_fichero) loop
-            ALTA_JUGADOR(JUGADORES, 
-                         To_Unbounded_String(Get_Line(mi_fichero)), 
+            NOMBRE:= To_Unbounded_String(Get_Line(mi_fichero));
+            if LENGTH(NOMBRE) /=0 then
+                ALTA_JUGADOR(JUGADORES, 
+                         NOMBRE, 
                          Integer'Value(Get_Line(mi_fichero)), 
                          Integer'Value(Get_Line(mi_fichero)));
+            end if;
         end loop;
         
         Close(mi_fichero);
         return JUGADORES;
     end CARGAR_JUGADORES;   
----------------------------------------------------------------------------
+    ---------------------------------------------------------------------------
     --  GUARDAR EL VECTOR DE JUGADORES EN EL FICHERO ** DESPUES 
     ---------------------------------------------------------------------------
+    procedure GUARDAR_JUGADORES (NOMBRE_FICHERO: String; JUGADORES: Vector) is
+        mi_fichero: File_Type;
+        --PRIMERA_LINEA: Boolean:= True;
+    begin
+    
+        CREATE (
+                File => mi_fichero, -- Descriptor del fichero (PUNTERO AL CONTENIDO DEL FICHERO)
+                Mode => Out_File , --modo de apertura: Lectura, escritura, adición
+                Name => NOMBRE_FICHERO-- nombre del fichero
+                );
+        
+        --for INDICE of JUGADORES.FIRST_INDEX..JUGADORES.LAST_INDEX loop
+        --    JUGADORES(INDICE)
+        for UN_JUGADOR of JUGADORES loop
+            --IF not PRIMERA_LINEA THEN
+            --    Put_Line(mi_fichero,"");
+            --END IF;
+            Put_Line( mi_fichero, TO_STRING(UN_JUGADOR.Nombre));
+            --PRIMERA_LINEA:= False;
+            Put_Line( mi_fichero, UN_JUGADOR.Partidas_Jugadas'Image);
+            Put_Line( mi_fichero, UN_JUGADOR.Partidas_Ganadas'Image);
+        end loop;
+        
+        Close(mi_fichero);
+
+    end GUARDAR_JUGADORES;       
+    
     
 begin
-    JUGADORES:= CARGAR_JUGADORES("jugadores.txt");
+    JUGADORES:= CARGAR_JUGADORES("jugadores_nuevo.txt");
     -- Listado de Jugadores por consola
     for UN_JUGADOR of JUGADORES loop
         Put_Line(TO_STRING(UN_JUGADOR.Nombre));
@@ -116,4 +147,5 @@ begin
     MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
     ANOTAR_RESULTADO_PARTIDA(    JUGADORES, TO_Unbounded_String("Lucas"), FALSE);
     MOSTRAR_ESTADISTICAS_JUGADOR(JUGADORES, TO_Unbounded_String("Lucas"));
+    GUARDAR_JUGADORES("jugadores_nuevo2.txt",JUGADORES);
 end;
